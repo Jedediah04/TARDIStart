@@ -114,27 +114,27 @@
 			<!-- liens -->
 			<!-- voir http://fontawesome.io/icons/ pour le nom des icones -->
 			<div id="links">
-				<a class="item" href="https://domain.tld/rutorrent" TITLE="ruTorrent">
+				<a href="https://domain.tld/rutorrent" TITLE="ruTorrent">
 					<span class="fa fa-download"></span>
 					<div id="lien">ruTorrent</div>
 				</a>
-				<a class="item" href="https://app.plex.tv" TITLE="Plex">
+				<a href="https://app.plex.tv" TITLE="Plex">
 					<span class="fa fa-play-circle-o"></span>
 					<div id="lien">Plex</div>
 				</a>
-				<a class="item" href="https://domain.tld/sickrage/" TITLE="Sickrage">
+				<a href="https://domain.tld/sickrage/" TITLE="Sickrage">
 					<span class="fa fa-television"></span>
 					<div id="lien"> Sickrage</div>
 				</a>
-				<a class="item" href="https://domain.tld/app/glype" TITLE="Proxy">
+				<a href="https://domain.tld/app/glype" TITLE="Proxy">
 					<span class="fa fa-globe"></span>
 					<div id="lien">Proxy</div>
 				</a>
-				<a class="item" href="https://webmail.domain.tld" TITLE="Rainloop">
+				<a href="https://webmail.domain.tld" TITLE="Rainloop">
 					<span class="fa fa-envelope"></span>
 					<div id="lien"> Rainloop</div>
 				</a>
-				<a class="item" href="https://cloud.domain.tld" TITLE="ownCloud">
+				<a href="https://cloud.domain.tld" TITLE="ownCloud">
 					<span class="fa fa-cloud"></span>
 					<div id="lien">ownCloud</div>
 				</a>
@@ -169,6 +169,6 @@
 	</div>
 	
 	<!-- script recherche -->
-    <script src="/ressources/start.js"></script>
+    	<script src="/ressources/start.js"></script>
 </body>
 </html>
