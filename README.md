@@ -1,6 +1,10 @@
 # TARDIS-Start-Page
 Code source du dashboard TARDIS
 
+### Attention !
+Le code est très loin d'être propre, en particulier pour le CSS et le PHP.
+Certains morceaux de codes sont très certainement redondants et non optimisés.
+
 ![TARDIS](https://img.tardisbox.net/MQAS5ttm/OQxENBym.jpg)
 
 ***Fonctions :***
