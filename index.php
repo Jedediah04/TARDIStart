@@ -114,55 +114,55 @@
 			<!-- liens -->
 			<!-- voir http://fontawesome.io/icons/ pour le nom des icones -->
 			<div id="links">
-				<a clas="item" href="https://domain.tld/rutorrent" TITLE="ruTorrent">
-				<span class="fa fa-download"></span>
-				<div id="lien">ruTorrent</div>
+				<a class="item" href="https://domain.tld/rutorrent" TITLE="ruTorrent">
+					<span class="fa fa-download"></span>
+					<div id="lien">ruTorrent</div>
 				</a>
-				<a clas="item" href="https://app.plex.tv" TITLE="Plex">
-				<span class="fa fa-play-circle-o"></span>
-				<div id="lien">Plex</div>
+				<a class="item" href="https://app.plex.tv" TITLE="Plex">
+					<span class="fa fa-play-circle-o"></span>
+					<div id="lien">Plex</div>
 				</a>
-				<a clas="item" href="https://domain.tld/sickrage/" TITLE="Sickrage">
-				<span class="fa fa-television"></span>
-				<div id="lien"> Sickrage</div>
+				<a class="item" href="https://domain.tld/sickrage/" TITLE="Sickrage">
+					<span class="fa fa-television"></span>
+					<div id="lien"> Sickrage</div>
 				</a>
-				<a clas="item" href="https://domain.tld/app/glype" TITLE="Proxy">
-				<span class="fa fa-globe"></span>
-				<div id="lien">Proxy</div>
+				<a class="item" href="https://domain.tld/app/glype" TITLE="Proxy">
+					<span class="fa fa-globe"></span>
+					<div id="lien">Proxy</div>
 				</a>
-				<a clas="item" href="https://webmail.domain.tld" TITLE="Rainloop">
-				<span class="fa fa-envelope"></span>
-				<div id="lien"> Rainloop</div>
+				<a class="item" href="https://webmail.domain.tld" TITLE="Rainloop">
+					<span class="fa fa-envelope"></span>
+					<div id="lien"> Rainloop</div>
 				</a>
-				<a clas="item" href="https://cloud.domain.tld" TITLE="ownCloud">
-				<span class="fa fa-cloud"></span>
-				<div id="lien">ownCloud</div>
+				<a class="item" href="https://cloud.domain.tld" TITLE="ownCloud">
+					<span class="fa fa-cloud"></span>
+					<div id="lien">ownCloud</div>
 				</a>
 				<br>
 				<br>
 				<a href="https://img.domain.tld/" TITLE="Lutim">
-				<span class="fa fa-file-image-o"></span>
-				<div id="lien">Lutim</div>
+					<span class="fa fa-file-image-o"></span>
+					<div id="lien">Lutim</div>
 				</a>
 				<a href="https://file.domain.tld/" TITLE="Lufi">
-				<span class="fa fa-file-o"></span>
-				<div id="lien">Lufi</div>
+					<span class="fa fa-file-o"></span>
+					<div id="lien">Lufi</div>
 				</a>
 				<a href="https://domain.tld/app/paste" TITLE="ZeroBin">
-				<span class="fa fa-file-text-o"></span>
-				<div id="lien">Paste</div>
+					<span class="fa fa-file-text-o"></span>
+					<div id="lien">Paste</div>
 				</a>
 				<a href="https://rss.domain.tld/" TITLE="Selfoss">
-				<span class="fa fa-rss-square"></span>
-				<div id="lien">Selfoss</div>
+					<span class="fa fa-rss-square"></span>
+					<div id="lien">Selfoss</div>
 				</a>
 				<a href="https://codiad.domain.tld" TITLE="Codiad">
-				<span class="fa fa-file-code-o"></span>
-				<div id="lien">Codiad</div>
+					<span class="fa fa-file-code-o"></span>
+					<div id="lien">Codiad</div>
 				</a>
 				<a href="https://shield.domain.tld" TITLE="LibreNMS">
-				<span class="fa fa-bar-chart"></span>
-				<div id="lien">SHIELD</div>
+					<span class="fa fa-bar-chart"></span>
+					<div id="lien">SHIELD</div>
 				</a>
 			</div>
 		</div>
