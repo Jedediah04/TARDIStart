@@ -49,8 +49,8 @@
 	<div id="particles-js"></div>
 	
 	<!-- scripts particles -->
-	<script src="/ressources/particles.js/particles.js"></script>
-	<script src="/ressources/particles.js/app.js"></script>
+	<script src="/ressources/particles/particles.js"></script>
+	<script src="/ressources/particles/app.js"></script>
 
 	<!-- contenu -->
 	<div class="center">
