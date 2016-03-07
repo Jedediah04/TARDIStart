@@ -5,7 +5,7 @@ Code source du dashboard TARDIS
 Le code est très loin d'être propre, en particulier pour le CSS et le PHP.
 Certains morceaux de codes sont très certainement redondants et non optimisés.
 
-![TARDIS](https://img.tardisbox.net/MQAS5ttm/OQxENBym.jpg)
+![TARDIS](https://img.tardisbox.net/fSNv3OYq/HRFoaU0l)
 
 ***Fonctions :***
 * Raccourcis vers vos services
