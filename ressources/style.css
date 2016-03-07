@@ -43,14 +43,15 @@ a:hover, a:active {
 	-o-box-shadow: 0px -10px 10px -5px #000000;
 	box-shadow: 0px -10px 10px -5px #000000;
 	filter:progid:DXImageTransform.Microsoft.Shadow(color=#000000, Direction=90, Strength=10);
+	font-style: italic;
 }
 
 #q:focus { 
-	border-color: gray !important; 
+	border-color: #E0E0E0 !important; 
 }
 	
 #q:hover { 
-	border-color: gray;
+	border-color: #E0E0E0;
 }
 
 #logotop {
@@ -59,7 +60,7 @@ a:hover, a:active {
 	background-size: 425px 134px;
 	width : 425px; 
 	height : 134px;
-	margin-top:80px;
+	margin-top:60px;
 	margin-bottom:-5px;
 }
 
@@ -79,15 +80,18 @@ a:hover, a:active {
 	text-transform: uppercase;
 	font-size: 10pt;
 	width:75px;
+	margin:10px;
+	margin-top:0px;
+	margin-bottom:0px;
 }
 
 #links {
-	margin-top:60px;
+	margin-top:30px;
 }
 
 #links a:hover {
 	text-decoration: none;
-	color: gray;
+	color: #E0E0E0;
 }
 
 #short {
@@ -125,4 +129,142 @@ a:hover, a:active {
 	background-position: 50% 50%;
 	background-repeat: no-repeat;
 	z-index:1;
+}
+
+.SEEDBOX {
+	display:inline-block;
+	margin:10px;
+	margin-top:5px;
+}
+
+.CLOUD {
+	display:inline-block;
+	margin:10px;
+	margin-top:5px;
+}
+
+.HOSTING {
+	display:inline-block;
+	margin:10px;
+}
+
+.MISC {
+	display:inline-block;
+	margin:10px;
+}
+
+.link1{
+  position: relative;
+  text-align:center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 260px;
+}
+
+.link2{
+  position: relative;
+  text-align:center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 260px;
+}
+
+.link3{
+  position: relative;
+  text-align:center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 260px;
+}
+
+.link4{
+  position: relative;
+  text-align:center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 260px;
+}
+
+.monitoring {
+	margin-top:20px;
+}
+
+.CPU {
+	display:inline-block;
+	margin-left:10px;
+	margin-right:10px;
+}
+
+#CPUbar {
+	position: relative;
+  	margin-left: auto;
+  	margin-right: auto;
+	text-align:center;
+}
+
+.RAM {
+	display:inline-block;
+	margin-left:10px;
+	margin-right:10px;
+}
+
+#RAMbar {
+	position: relative;
+  	margin-left: auto;
+  	margin-right: auto;
+	text-align:center;
+}
+
+.HDD {
+	display:inline-block;
+	margin-left:10px;
+	margin-right:10px;
+}
+
+#HDDbar {
+	position: relative;
+  	margin-left: auto;
+  	margin-right: auto;
+	text-align:center;
+}
+
+
+
+/* BARRE DE PROGRESSION */
+/*
+Copyright (c) 2010-2012 Ivan Vanderbyl
+Originally found at http://ivan.ly/ui
+*/
+
+.ui-progress-bar {
+	position: absolute;
+	width:50px;
+	height: 3px;
+	margin-top:5px;
+	margin-bottom:5px;
+	background-color: rgba(255, 255, 255, .33);
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-o-border-radius: 5px;
+	-ms-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	border-radius: 5px;
+	margin-left:210px;
+
+}
+
+.ui-progress-bar .ui-progress {
+	position: absolute;
+	display: block;
+	overflow: hidden;
+	height: 3px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-o-border-radius: 5px;
+	-ms-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	border-radius: 5px;
+	-webkit-background-size: 44px 44px;
+	-moz-background-size: 36px 36px;
+	background-color: white;
 }
