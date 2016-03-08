@@ -32,7 +32,7 @@
 			<div class="CPU">
 				<span>CPU</span>
 				<div class="ui-progress-bar ui-container" id="CPUbar">
-					<div class="ui-progress" style="width:<?= getCpuLoad();?>"></div>
+					<div class="ui-progress" style="width:<?= getCpuLoad();?>%"></div>
 				</div>
 				<span><?= getCpuLoad();?>%</span>
 			</div>
