@@ -1,4 +1,27 @@
-ul, li { 
+html, body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	font-family: "Droid Sans", "Liberation Sans", "DejaVu Sans", "Segoe UI", Sans-Serif;
+	font-size: 10pt;
+	background: #EAEAEA;
+	color: #ffffff;
+	-webkit-background-size: 100%;
+	-moz-background-size: 100%;
+	-o-background-size: 100%;
+	background-size: 100%;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	width: 100%;
+	background-attachment: fixed;
+	background-position: center center;
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+}
+ul, li {
 	list-style-type: none; 
 	margin: 0; 
 	padding: 0; 
@@ -16,7 +39,7 @@ a:hover, a:active {
 .center { 
 	position: relative; 
 	width: 100%; 
-	height: 100%;
+	height: 90%;
 }
 
 .center .content {
@@ -26,10 +49,10 @@ a:hover, a:active {
 	z-index:2;
 }
 
-#q {
+#search {
 	margin-top: -8px;
 	width: 400px;
-	background-image: url('./img/bg1.jpg');
+	background-image: url('../img/bg1.jpg');
 	background-position: 50% 50%;
 	background: rgba(10, 7, 37, 0.59);
 	color: #fff;
@@ -46,17 +69,17 @@ a:hover, a:active {
 	font-style: italic;
 }
 
-#q:focus { 
+#search:focus {
 	border-color: #E0E0E0 !important; 
 }
 	
-#q:hover { 
+#search:hover {
 	border-color: #E0E0E0;
 }
 
 #logotop {
 	margin: 0 auto;
-	background-image : url('./img/logo_start_ombre.png'); 
+	background-image : url('../img/logo_start_ombre.png');
 	background-size: 425px 134px;
 	width : 425px; 
 	height : 134px;
