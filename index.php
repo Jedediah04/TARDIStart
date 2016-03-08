@@ -5,9 +5,9 @@
 	<meta name="robots" content="noindex">
 	<title>Start - T.A.R.D.I.S.</title>
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="/ressources/style.css">
-	<link rel="icon" type="ico" href="/ressources/img/tardis.ico">
+	<link rel="icon" type="ico" href="./assets/img/tardis.ico">
+	<link rel="stylesheet" href="./assets/bower/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="./assets/css/style.css">
 	<meta name="viewport" content="width=device-width">
 	<script src='/ressources/jquery.min.js'></script>
 	
@@ -67,7 +67,7 @@
 			<div id="logotop"></div>
 			<!-- recherche -->
 			<span class="fa fa-search"></span>
-			<input type="text" id="q" value="" placeholder="<?php echo "Je fonctionne depuis " . $up_days . " jours...";?>" onkeypress="javascript:handleQuery(event,this.value);" onfocus="this.value=this.value" />
+			<input type="text" id="search" placeholder="Je fonctionne depuis <?= getUpTime()[0]; ?> jour(s)."/>
 			<br>
 			
 			<!-- monitoring -->
