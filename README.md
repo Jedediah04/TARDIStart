@@ -16,17 +16,3 @@ Certains morceaux de codes sont très certainement redondants et non optimisés.
 * Affichage des infos du serveur (CPU/RAM/HDD/UPTIME)
 * Wallpaper aléatoire (voir header index.php)
 * particles.js pour wallpaper dynamique
-
-For install 
-
-``` bash 
-git clone https://github.com/Jedediah04/TARDIStart tardistart 
-bower ìnstall
-chown -R www-data:www-data /var/www/tardistart
-```
-
-If you are in root
-
-``` bash
-bower install --allow-root
-```

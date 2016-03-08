@@ -6,16 +6,63 @@
 	<title>Start - T.A.R.D.I.S.</title>
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="/assets/css/style.css">
-	<link rel="icon" type="ico" href="/assets/img/tardis.ico">
+	<link rel="stylesheet" type="text/css" href="/ressources/style.css">
+	<link rel="icon" type="ico" href="/ressources/img/tardis.ico">
 	<meta name="viewport" content="width=device-width">
+	<script src='/ressources/jquery.min.js'></script>
+	
+	<!-- background aléatoire -->
+	<?php
+		  $bg = array('bg1.jpg', 'bg2.jpg', 'bg3.jpg'); // liste des images
+		  $i = rand(0, count($bg)-1); // génération d'un nombre aléatoire
+		  $selectedBg = $bg[$i]; // ajout du nom de l'image pour inclusion CSS
+	?>
+
+	<!-- CSS dans header pour background aléatoire -->
+	<style type="text/css">
+		html, body{
+			margin: 0; padding: 0;
+			width: 100%; height: 95%;
+			font-family: "Droid Sans", "Liberation Sans", "DejaVu Sans", "Segoe UI", Sans-Serif; font-size: 10pt;
+			background: #EAEAEA;
+			background: url('./ressources/img/<?php echo $selectedBg; ?>') no-repeat;
+			color: #ffffff;
+			-webkit-background-size: 100%;
+			-moz-background-size: 100%;
+			-o-background-size: 100%;
+			background-size: 100%;
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
+			background-size: cover;
+			width: 100%;
+			background-attachment: fixed;
+			background-position: center center;
+			padding-bottom: 0px;
+			margin-bottom: 0px;
+		}
+	</style>
 </head>
 
-<body>
-	<?php include_once('./statsServ.php'); ?>
-
+<body onload="javascript:init();">
 	<!-- particles.js container -->
 	<div id="particles-js"></div>
+	
+	<!-- scripts particles -->
+	<script src="/ressources/particles/particles.js"></script>
+	<script src="/ressources/particles/app.js"></script>
+
+	<?php	
+		// UPTIME
+		exec("uptime", $system); // get the uptime stats 
+		$string = $system[0]; // this might not be necessary 
+		$uptime = explode(" ", $string); // break up the stats into an array 
+		$up_days = $uptime[3]; // grab the days from the array 
+		$hours = explode(":", $uptime[6]); // split up the hour:min in the stats 
+		$up_hours = $hours[0]; // grab the hours 
+		$mins = $hours[1]; // get the mins 
+		$up_mins = str_replace(",", "", $mins); // strip the comma from the mins 
+	?>
 
 	<!-- contenu -->
 	<div class="center">
@@ -24,31 +71,81 @@
 			<div id="logotop"></div>
 			<!-- recherche -->
 			<span class="fa fa-search"></span>
-			<input type="text" id="search" placeholder="Je fonctionne depuis <?= getUpTime()[0]; ?> jour(s) et <?= getUpTime()[1]; ?> heure(s)."/>
+			<input type="text" id="q" value="" placeholder="<?php echo "Je fonctionne depuis " . $up_days . " jour(s) et " . $up_hours . " heure(s).";?>" onkeypress="javascript:handleQuery(event,this.value);" onfocus="this.value=this.value" />
 			<br>
 			
 			<!-- monitoring -->
 			<div class="monitoring">
 				<div class="CPU">
-					<span>CPU : <?= getCpuLoad();?>%</span>
-					<div class="ui-progress-bar ui-container" id="CPUbar">
-						<div class="ui-progress" style="width:<?= getCpuLoad();?>"></div>
-					</div>
+					<?php
+						// CPU USAGE
+						$loads = sys_getloadavg();
+						$core_nums = trim(shell_exec("grep -P '^processor' /proc/cpuinfo|wc -l"));
+						$load = round($loads[0]/($core_nums + 1)*100, 0);
+						echo 'CPU : '.$load.'% ';
+						echo "
+						<div class=\"ui-progress-bar ui-container\" id=\"CPUbar\">
+							<div class=\"ui-progress\" style=\"width: $load%;\">
+								<!--<span class=\"ui-label\">$load%</span>-->
+							</div>
+						</div>
+						";
+					?>
 				</div>
-
 				
 				<div class="RAM">	
-					<span>RAM : <?= getRamUsage()[1]; ?>%</span>
-					<div class="ui-progress-bar ui-container" id="RAMbar">
-						<div class="ui-progress" style="width: <?= getRamUsage()[0]; ?>%"></div>
-					</div>
+					<?php
+						// RAM USAGE
+						$data = explode("\n", file_get_contents("/proc/meminfo"));
+						$meminfo = array();
+						foreach ($data as $line) {
+							list($key, $val) = explode(":", $line);
+							$meminfo[$key] = trim($val);
+						}
+						$totalRAM = $meminfo[MemTotal];
+						$totalRAM=ereg_replace("[^0-9]","",$totalRAM); 
+						$cachedRAM = $meminfo[Cached];
+						$cachedRAM=ereg_replace("[^0-9]","",$cachedRAM); 
+						$free=$totalRAM-$cachedRAM;
+						$used = $totalRAM-$free;
+						$percent = ($used/$totalRAM)*100;
+						echo 'RAM : '.round($percent,0).'%';
+						echo "
+						<div class=\"ui-progress-bar ui-container\" id=\"RAMbar\">
+							<div class=\"ui-progress\" style=\"width: $percent%;\">
+								<!--<span class=\"ui-label\">$percent%</span>-->
+							</div>
+						</div>
+						";
+					?>	
 				</div>
 				
-				<div class="HDD">
-					<span>HDD : <?= getHDDUsage()[1]; ?>%</span>
-					<div class="ui-progress-bar ui-container" id="HDDbar">
-						<div class="ui-progress" style="width: <?= getHDDUsage()[0]; ?>%"></div>
-					</div>
+				<div class="HDD">			
+					<?php
+						// HDD USAGE
+						$bytes = disk_free_space("."); 
+						$si_prefix = array( 'o', 'Ko', 'Mo', 'Go', 'To', 'EB', 'ZB', 'YB' );
+						$base = 1024;
+						$class = min((int)log($bytes , $base) , count($si_prefix) - 1);
+						$used = sprintf('%1.2f' , $bytes / pow($base,$class)) . ' ' . $si_prefix[$class] . '<br />';
+						$totalRAM=ereg_replace("[^0-9]","",$used); 
+						$bytes = disk_total_space("."); 
+						$si_prefix = array( 'o', 'Ko', 'Mo', 'Go', 'To', 'EB', 'ZB', 'YB' );
+						$base = 1024;
+						$class = min((int)log($bytes , $base) , count($si_prefix) - 1);
+						$total = sprintf('%1.2f' , $bytes / pow($base,$class)) . ' ' . $si_prefix[$class] . '<br />';
+						$totalRAM=ereg_replace("[^0-9]","",$total); 
+						$freeHDD = $total - $used;
+						$percentHDD = ($freeHDD/$total)*100;
+						echo 'HDD : '.round($percentHDD,0).'%';
+						echo "
+						<div class=\"ui-progress-bar ui-container\" id=\"HDDbar\">
+							<div class=\"ui-progress\" style=\"width: $percentHDD%;\">
+								<!--<span class=\"ui-label\">$load%</span>-->
+							</div>
+						</div>
+						";
+					?>	
 				</div>
 			</div>
 			
@@ -58,7 +155,7 @@
 				<div class="SEEDBOX">
 					<div class="link1">
 						SEEDBOX<br>
-						<img src="/assets/img/link.png">
+						<img src="/ressources/img/link.png">
 					</div>
 					<a href="https://domain.tld/rutorrent" TITLE="ruTorrent">
 						<span class="fa fa-download"></span>
@@ -77,7 +174,7 @@
 				<div class="CLOUD">
 					<div class="link2">
 						CLOUD<br>
-						<img src="/assets/img/link.png">
+						<img src="/ressources/img/link.png">
 					</div>
 					<a href="https://rss.domain.tld" TITLE="Selfoss">
 						<span class="fa fa-rss-square"></span>
@@ -110,7 +207,7 @@
 						<div id="lien">Paste</div>
 					</a>
 					<div class="link3">
-						<img src="/assets/img/link_rev.png"><br>
+						<img src="/ressources/img/link_rev.png"><br>
 						HOSTING
 					</div>
 				</div>
@@ -129,7 +226,7 @@
 						<div id="lien">SHIELD</div>
 					</a>
 					<div class="link4">
-						<img src="/assets/img/link_rev.png"><br>
+						<img src="/ressources/img/link_rev.png"><br>
 						MISC.
 					</div>
 				</div>
@@ -138,10 +235,6 @@
 	</div>
 	
 	<!-- script recherche -->
-	<script src='./assets/bower/jquery/dist/jquery.min.js'></script>
-	<script src="./assets/bower/particles.js/particles.min.js"></script>
-	<script src="./assets/js/search.js"></script>
-	<script src="./assets/js/app.js"></script>
-	<script src="./assets/js/randomBackground.js"></script>
+    	<script src="/ressources/start.js"></script>
 </body>
 </html>
