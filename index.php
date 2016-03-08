@@ -58,10 +58,6 @@
 		$string = $system[0]; // this might not be necessary 
 		$uptime = explode(" ", $string); // break up the stats into an array 
 		$up_days = $uptime[3]; // grab the days from the array 
-		$hours = explode(":", $uptime[6]); // split up the hour:min in the stats 
-		$up_hours = $hours[0]; // grab the hours 
-		$mins = $hours[1]; // get the mins 
-		$up_mins = str_replace(",", "", $mins); // strip the comma from the mins 
 	?>
 
 	<!-- contenu -->
@@ -71,7 +67,7 @@
 			<div id="logotop"></div>
 			<!-- recherche -->
 			<span class="fa fa-search"></span>
-			<input type="text" id="q" value="" placeholder="<?php echo "Je fonctionne depuis " . $up_days . " jour(s) et " . $up_hours . " heure(s).";?>" onkeypress="javascript:handleQuery(event,this.value);" onfocus="this.value=this.value" />
+			<input type="text" id="q" value="" placeholder="<?php echo "Je fonctionne depuis " . $up_days . " jours...";?>" onkeypress="javascript:handleQuery(event,this.value);" onfocus="this.value=this.value" />
 			<br>
 			
 			<!-- monitoring -->
@@ -82,7 +78,7 @@
 						$loads = sys_getloadavg();
 						$core_nums = trim(shell_exec("grep -P '^processor' /proc/cpuinfo|wc -l"));
 						$load = round($loads[0]/($core_nums + 1)*100, 0);
-						echo 'CPU : '.$load.'% ';
+						echo 'CPU';
 						echo "
 						<div class=\"ui-progress-bar ui-container\" id=\"CPUbar\">
 							<div class=\"ui-progress\" style=\"width: $load%;\">
@@ -90,6 +86,7 @@
 							</div>
 						</div>
 						";
+						echo $load.'% ';
 					?>
 				</div>
 				
@@ -109,7 +106,7 @@
 						$free=$totalRAM-$cachedRAM;
 						$used = $totalRAM-$free;
 						$percent = ($used/$totalRAM)*100;
-						echo 'RAM : '.round($percent,0).'%';
+						echo 'RAM';
 						echo "
 						<div class=\"ui-progress-bar ui-container\" id=\"RAMbar\">
 							<div class=\"ui-progress\" style=\"width: $percent%;\">
@@ -117,6 +114,7 @@
 							</div>
 						</div>
 						";
+						echo round($percent,0).'%';
 					?>	
 				</div>
 				
@@ -137,7 +135,7 @@
 						$totalRAM=ereg_replace("[^0-9]","",$total); 
 						$freeHDD = $total - $used;
 						$percentHDD = ($freeHDD/$total)*100;
-						echo 'HDD : '.round($percentHDD,0).'%';
+						echo 'HDD';
 						echo "
 						<div class=\"ui-progress-bar ui-container\" id=\"HDDbar\">
 							<div class=\"ui-progress\" style=\"width: $percentHDD%;\">
@@ -145,6 +143,7 @@
 							</div>
 						</div>
 						";
+						echo round($percentHDD,0).'%';
 					?>	
 				</div>
 			</div>
