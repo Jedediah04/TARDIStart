@@ -73,7 +73,7 @@
 			<!-- monitoring -->
 			<div class="monitoring">
 				<div class="CPU">
-					<?php
+					<span>CPU</span>
 						// CPU USAGE
 						$loads = sys_getloadavg();
 						$core_nums = trim(shell_exec("grep -P '^processor' /proc/cpuinfo|wc -l"));
@@ -84,6 +84,7 @@
 							<div class=\"ui-progress\" style=\"width: $load%;\">
 								<!--<span class=\"ui-label\">$load%</span>-->
 							</div>
+					<span><?= getCpuLoad();?>%</span>
 						</div>
 						";
 						echo $load.'% ';
@@ -91,7 +92,7 @@
 				</div>
 				
 				<div class="RAM">	
-					<?php
+					<span>RAM</span>
 						// RAM USAGE
 						$data = explode("\n", file_get_contents("/proc/meminfo"));
 						$meminfo = array();
@@ -112,6 +113,7 @@
 							<div class=\"ui-progress\" style=\"width: $percent%;\">
 								<!--<span class=\"ui-label\">$percent%</span>-->
 							</div>
+					<span><?= getRamUsage()[1];?>%</span>
 						</div>
 						";
 						echo round($percent,0).'%';
@@ -119,7 +121,7 @@
 				</div>
 				
 				<div class="HDD">			
-					<?php
+					<span>HDD</span>
 						// HDD USAGE
 						$bytes = disk_free_space("."); 
 						$si_prefix = array( 'o', 'Ko', 'Mo', 'Go', 'To', 'EB', 'ZB', 'YB' );
@@ -141,6 +143,7 @@
 							<div class=\"ui-progress\" style=\"width: $percentHDD%;\">
 								<!--<span class=\"ui-label\">$load%</span>-->
 							</div>
+					<?= getHDDUsage()[1]; ?>%
 						</div>
 						";
 						echo round($percentHDD,0).'%';

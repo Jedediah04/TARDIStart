@@ -17,7 +17,7 @@ $(function () {
 
         if (key == 13) {
             var search = this.value;
-            if (search.lastIndexOf("!") != -1) { // if "!" is found
+            if (search.lastIndexOf("!") == 0) { // if "!" is found
                 var tab = search.split(' ');
                 if (tab.length > 1 && searcher[tab[0]]) {
                     window.location = search.replace(tab[0]+" ", searcher[tab[0]]);
