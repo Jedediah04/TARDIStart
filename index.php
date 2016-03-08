@@ -154,7 +154,7 @@
 				<div class="SEEDBOX">
 					<div class="link1">
 						SEEDBOX<br>
-						<img src="/ressources/img/link.png">
+						<img src="./assets/img/link.png">
 					</div>
 					<a href="https://domain.tld/rutorrent" TITLE="ruTorrent">
 						<span class="fa fa-download"></span>
@@ -173,7 +173,7 @@
 				<div class="CLOUD">
 					<div class="link2">
 						CLOUD<br>
-						<img src="/ressources/img/link.png">
+						<img src="./assets/img/link.png">
 					</div>
 					<a href="https://rss.domain.tld" TITLE="Selfoss">
 						<span class="fa fa-rss-square"></span>
@@ -206,7 +206,7 @@
 						<div id="lien">Paste</div>
 					</a>
 					<div class="link3">
-						<img src="/ressources/img/link_rev.png"><br>
+						<img src="./assets/img/link_rev.png"><br>
 						HOSTING
 					</div>
 				</div>
@@ -225,7 +225,7 @@
 						<div id="lien">SHIELD</div>
 					</a>
 					<div class="link4">
-						<img src="/ressources/img/link_rev.png"><br>
+						<img src="./assets/img/link_rev.png"><br>
 						MISC.
 					</div>
 				</div>
