@@ -291,3 +291,38 @@ Originally found at http://ivan.ly/ui
 	-moz-background-size: 36px 36px;
 	background-color: white;
 }
+
+/* Responsive */
+@media screen and (max-width: 652px){
+    .CLOUD, .SEEDBOX, .HOSTING, .MISC {
+        display: block;
+    }
+    .center .content {
+        overflow: visible;
+        margin: 0;
+        width: auto;
+    }
+    #search {
+        width: 80%;
+    }
+    .content .fa-search {
+        margin-left: 78%;
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 430px){
+    #logotop {
+        width: 327px;
+        height: 103px;
+        background-size: 327px 103px;
+        
+    }
+}
+
+@media (max-width: 320px){
+    #logotop {
+        width: 213px;
+        height: 67px;
+        background-size: 213px 67px;
+    }
+}
