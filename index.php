@@ -23,8 +23,10 @@
 		<!-- logo -->
 		<div id="logotop"></div>
 		<!-- recherche -->
+		<div class="search-box">
 		<span class="fa fa-search"></span>
 		<input type="text" id="search" placeholder="Je fonctionne depuis <?= getUpTime()[0]; ?> jour(s)."/>
+		</div>
 		<br>
 
 		<!-- monitoring -->

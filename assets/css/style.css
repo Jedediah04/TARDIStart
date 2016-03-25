@@ -43,7 +43,7 @@ a:hover, a:active {
 }
 
 .center .content {
-	margin: auto; overflow: auto; width: 700px; height: 550px;
+	margin: auto; overflow: auto; width: 100%; height: 100%;
 	position: absolute; left: 0; top: 0; right: 0; bottom: -50px;
 	text-align: center; opacity: 1; transition: .3s ease-out;
 	z-index:2;
@@ -128,7 +128,8 @@ a:hover, a:active {
 .content .fa-search {
 	position: absolute;
 	margin-top: 1px;
-	margin-left: 390px;
+    margin-left: 390px;
+    display: inline;
 	font-size: 16pt;
 	width:0px;
 }
@@ -298,15 +299,17 @@ Originally found at http://ivan.ly/ui
         display: block;
     }
     .center .content {
-        overflow: visible;
+        overflow: scroll;
         margin: 0;
-        width: auto;
+        width: 100%;
+        height: 100%;
     }
     #search {
         width: 80%;
     }
     .content .fa-search {
-        margin-left: 78%;
+        margin-left: 84%;
+        display: flex;
     }
 }
 
