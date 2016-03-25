@@ -12,7 +12,10 @@
 </head>
 
 <body>
-<?php include_once('./statsServ.php'); ?>
+<?php include_once('./statsServ.php'); 
+$uptime = getUpTime()[0];
+if(getUpTime()[0] === 1): $uppy = $uptime . " jour"; else: $uppy = $uptime . " jours"; endif;
+?>
 
 <!-- particles.js container -->
 <div id="particles-js"></div>
@@ -25,11 +28,7 @@
 		<!-- recherche -->
 		<div class="search-box">
 		<span class="fa fa-search"></span>
-		<?php if(getUpTime()[0] === 1): ?>
-		<input type="text" id="search" placeholder="Je fonctionne depuis <?= getUpTime()[0]; ?> jour."/>
-		<?php else: ?>
-		<input type="text" id="search" placeholder="Je fonctionne depuis <?= getUpTime()[0]; ?> jours."/>
-		<?php endif;?>
+		<input type="text" id="search" placeholder="Je fonctionne depuis <?= $uppy ?>..."/>
 		</div>
 		<br>
 
