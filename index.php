@@ -51,12 +51,12 @@ if(getUpTime()[0] === 1): $uppy = $uptime . " jour"; else: $uppy = $uptime . " j
 				<span><?= getRamUsage()[1];?>%</span>
 			</div>
 
-			<div class="HDD">
-				<span>HDD</span>
-				<div class="ui-progress-bar ui-container" id="HDDbar">
-					<div class="ui-progress" style="width: <?= getHDDUsage()[0]; ?>%"></div>
-				</div>
-				<?= getHDDUsage()[1]; ?>%
+			<div class="HDD"> 
+				<span>HDD</span> 
+				<div class="ui-progress-bar ui-container" id="HDDbar"> 
+					<div class="ui-progress" style="width: <?= getHDDUsage(); ?>%"></div> 
+				</div> 
+				<span><?= getHDDUsage();?>%</span> 
 			</div>
 		</div>
 
