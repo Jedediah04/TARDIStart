@@ -39,21 +39,10 @@ function getRamUsage() {
     return [$percent, round($percent,0)];
 }
 
-function getHDDUsage() {
-    // HDD USAGE
-    $bytes = disk_free_space(".");
-    $si_prefix = array( 'o', 'Ko', 'Mo', 'Go', 'To', 'EB', 'ZB', 'YB' );
-    $base = 1024;
-    $class = min((int)log($bytes , $base) , count($si_prefix) - 1);
-    $used = sprintf('%1.2f' , $bytes / pow($base,$class)) . ' ' . $si_prefix[$class] . '<br />';
-    $totalRAM=ereg_replace("[^0-9]","",$used);
-    $bytes = disk_total_space(".");
-    $si_prefix = array( 'o', 'Ko', 'Mo', 'Go', 'To', 'EB', 'ZB', 'YB' );
-    $base = 1024;
-    $class = min((int)log($bytes , $base) , count($si_prefix) - 1);
-    $total = sprintf('%1.2f' , $bytes / pow($base,$class)) . ' ' . $si_prefix[$class] . '<br />';
-    $totalRAM=ereg_replace("[^0-9]","",$total);
-    $freeHDD = $total - $used;
-    $percentHDD = ($freeHDD/$total)*100;
-    return [$percentHDD, round($percentHDD,0)];
+function getHDDUsage() { 
+    $ddfree = disk_free_space("/home"); 
+    $ddtotal = disk_total_space("/home"); 
+    $freeHDD = $ddtotal - $ddfree; 
+    $percentHDD = ($freeHDD/$ddtotal)*100; 
+    return round($percentHDD,0); 
 }
