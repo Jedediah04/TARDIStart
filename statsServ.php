@@ -30,9 +30,9 @@ function getRamUsage() {
         $meminfo[$key] = trim($val);
     }
     $totalRAM = $meminfo[MemTotal];
-    $totalRAM=ereg_replace("[^0-9]","",$totalRAM);
+    $totalRAM=preg_replace("/[^0-9]/","",$totalRAM);
     $cachedRAM = $meminfo[Cached];
-    $cachedRAM=ereg_replace("[^0-9]","",$cachedRAM);
+    $cachedRAM=preg_replace("/[^0-9]/","",$cachedRAM);
     $free=$totalRAM-$cachedRAM;
     $used = $totalRAM-$free;
     $percent = ($used/$totalRAM)*100;
@@ -46,13 +46,13 @@ function getHDDUsage() {
     $base = 1024;
     $class = min((int)log($bytes , $base) , count($si_prefix) - 1);
     $used = sprintf('%1.2f' , $bytes / pow($base,$class)) . ' ' . $si_prefix[$class] . '<br />';
-    $totalRAM=ereg_replace("[^0-9]","",$used);
+    $totalRAM=preg_replace("/[^0-9]/","",$used);
     $bytes = disk_total_space(".");
     $si_prefix = array( 'o', 'Ko', 'Mo', 'Go', 'To', 'EB', 'ZB', 'YB' );
     $base = 1024;
     $class = min((int)log($bytes , $base) , count($si_prefix) - 1);
     $total = sprintf('%1.2f' , $bytes / pow($base,$class)) . ' ' . $si_prefix[$class] . '<br />';
-    $totalRAM=ereg_replace("[^0-9]","",$total);
+    $totalRAM=preg_replace("/[^0-9]/","",$total);
     $freeHDD = $total - $used;
     $percentHDD = ($freeHDD/$total)*100;
     return [$percentHDD, round($percentHDD,0)];
