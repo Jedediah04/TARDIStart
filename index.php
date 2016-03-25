@@ -25,7 +25,11 @@
 		<!-- recherche -->
 		<div class="search-box">
 		<span class="fa fa-search"></span>
-		<input type="text" id="search" placeholder="Je fonctionne depuis <?= getUpTime()[0]; ?> jour(s)."/>
+		<?php if(getUpTime()[0] === 1): ?>
+		<input type="text" id="search" placeholder="Je fonctionne depuis <?= getUpTime()[0]; ?> jour."/>
+		<?php else: ?>
+		<input type="text" id="search" placeholder="Je fonctionne depuis <?= getUpTime()[0]; ?> jours."/>
+		<?php endif;?>
 		</div>
 		<br>
 
