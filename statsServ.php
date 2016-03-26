@@ -30,9 +30,9 @@ function getRamUsage() {
         $meminfo[$key] = trim($val);
     }
     $totalRAM = $meminfo[MemTotal];
-    $totalRAM=ereg_replace("[^0-9]","",$totalRAM);
+    $totalRAM=preg_replace("/[^0-9]/","",$totalRAM);
     $cachedRAM = $meminfo[Cached];
-    $cachedRAM=ereg_replace("[^0-9]","",$cachedRAM);
+    $cachedRAM=preg_replace("/[^0-9]/","",$cachedRAM);
     $free=$totalRAM-$cachedRAM;
     $used = $totalRAM-$free;
     $percent = ($used/$totalRAM)*100;
