@@ -22,21 +22,14 @@ function getCpuLoad() {
 }
 
 function getRamUsage() {
-    // RAM USAGE
-    $data = explode("\n", file_get_contents("/proc/meminfo"));
-    $meminfo = array();
-    foreach ($data as $line) {
-        list($key, $val) = explode(":", $line);
-        $meminfo[$key] = trim($val);
-    }
-    $totalRAM = $meminfo[MemTotal];
-    $totalRAM=preg_replace("/[^0-9]/","",$totalRAM);
-    $cachedRAM = $meminfo[Cached];
-    $cachedRAM=preg_replace("/[^0-9]/","",$cachedRAM);
-    $free=$totalRAM-$cachedRAM;
-    $used = $totalRAM-$free;
-    $percent = ($used/$totalRAM)*100;
-    return [$percent, round($percent,0)];
+    $free    = shell_exec('grep MemFree /proc/meminfo | awk \'{print $2}\'');
+    $buffers = shell_exec('grep Buffers /proc/meminfo | awk \'{print $2}\'');
+    $cached  = shell_exec('grep Cached /proc/meminfo | awk \'{print $2}\'');
+    $free = (int)$free + (int)$buffers + (int)$cached;
+	$total = shell_exec('grep MemTotal /proc/meminfo | awk \'{print $2}\'');
+	$used = $total - $free;
+    $percent_used = 100 - (round($free / $total * 100));
+    return [$percent_used, round($percent_used,0)];
 }
 
 function getHDDUsage() { 
