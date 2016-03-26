@@ -10,7 +10,12 @@ function getUpTime() {
     $up_hours = $hours[0]; // grab the hours
     $mins = $hours[1]; // get the mins
     $up_mins = str_replace(",", "", $mins); // strip the comma from the mins
-    return [$up_days, $up_hours, $up_mins];
+    $final = [$up_days, $up_hours, $up_mins];
+    if($final[0] === 1) {
+        return $final[0] . " jour";
+    } else {
+        return $final[0] . " jours";
+    }
 }
 
 function getCpuLoad() {
