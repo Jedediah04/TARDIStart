@@ -128,7 +128,8 @@ a:hover, a:active {
 .content .fa-search {
 	position: absolute;
 	margin-top: 1px;
-	margin-left: 390px;
+    margin-left: 390px;
+    display: inline;
 	font-size: 16pt;
 	width:0px;
 }
@@ -290,4 +291,41 @@ Originally found at http://ivan.ly/ui
 	-webkit-background-size: 44px 44px;
 	-moz-background-size: 36px 36px;
 	background-color: white;
+}
+
+/* Responsive */
+@media screen and (max-width: 652px){
+    .CLOUD, .SEEDBOX, .HOSTING, .MISC {
+        display: block;
+    }
+    .center .content {
+        overflow: scroll;
+        margin: 0;
+        width: 100%;
+        height: 100%;
+    }
+    #search {
+        width: 80%;
+    }
+    .content .fa-search {
+        margin-left: 84%;
+        display: flex;
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 430px){
+    #logotop {
+        width: 327px;
+        height: 103px;
+        background-size: 327px 103px;
+        
+    }
+}
+
+@media (max-width: 320px){
+    #logotop {
+        width: 213px;
+        height: 67px;
+        background-size: 213px 67px;
+    }
 }

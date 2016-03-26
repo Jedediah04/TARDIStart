@@ -8,11 +8,14 @@
 	<link rel="icon" type="ico" href="./assets/img/tardis.ico">
 	<link rel="stylesheet" href="./assets/bower/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="./assets/css/style.css">
-	<meta name="viewport" content="width=device-width">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 
 <body>
-<?php include_once('./statsServ.php'); ?>
+<?php include_once('./statsServ.php'); 
+$uptime = getUpTime()[0];
+if(getUpTime()[0] === 1): $uppy = $uptime . " jour"; else: $uppy = $uptime . " jours"; endif;
+?>
 
 <!-- particles.js container -->
 <div id="particles-js"></div>
@@ -23,8 +26,10 @@
 		<!-- logo -->
 		<div id="logotop"></div>
 		<!-- recherche -->
+		<div class="search-box">
 		<span class="fa fa-search"></span>
-		<input type="text" id="search" placeholder="Je fonctionne depuis <?= getUpTime()[0]; ?> jour(s)."/>
+		<input type="text" id="search" placeholder="Je fonctionne depuis <?= $uppy ?>..."/>
+		</div>
 		<br>
 
 		<!-- monitoring -->
