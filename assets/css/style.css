@@ -209,10 +209,6 @@ a:hover, a:active {
   width: 260px;
 }
 
-.monitoring {
-	margin-top:20px;
-}
-
 .CPU {
 	display:inline-block;
 	margin-left:10px;
