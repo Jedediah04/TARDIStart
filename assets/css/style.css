@@ -43,7 +43,7 @@ a:hover, a:active {
 }
 
 .center .content {
-	margin: auto; overflow: auto; width: 100%; height: 100%;
+	margin: auto; overflow: auto; width: 700px; height: 550px;
 	position: absolute; left: 0; top: 0; right: 0; bottom: -50px;
 	text-align: center; opacity: 1; transition: .3s ease-out;
 	z-index:2;
