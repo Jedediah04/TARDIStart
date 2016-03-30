@@ -18,6 +18,7 @@
   "dependencies": {
     "jquery": "^2.2.1",
     "particles.js": "^2.0.0",
-    "font-awesome": "fontawesome#^4.5.0"
+    "font-awesome": "fontawesome#^4.5.0",
+    "jeditable": "^1.7.3"
   }
 }
