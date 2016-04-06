@@ -37,18 +37,18 @@ if(getUpTime()[0] === 1): $uppy = $uptime . " jour"; else: $uppy = $uptime . " j
 			<div class="CPU">
 				<span>CPU</span>
 				<div class="ui-progress-bar ui-container" id="CPUbar">
-					<div class="ui-progress" style="width:<?= getCpuLoad();?>%"></div>
+					<div class="ui-progress" style="width:<?= getCPULoad();?>%"></div>
 				</div>
-				<span><?= getCpuLoad();?>%</span>
+				<span><?= getCPULoad();?>%</span>
 			</div>
 
 
 			<div class="RAM">
 				<span>RAM</span>
 				<div class="ui-progress-bar ui-container" id="RAMbar">
-					<div class="ui-progress" style="width: <?= getRamUsage()[0]; ?>%"></div>
+					<div class="ui-progress" style="width: <?= getRAMUsage()[0]; ?>%"></div>
 				</div>
-				<span><?= getRamUsage()[1];?>%</span>
+				<span><?= getRAMUsage()[1];?>%</span>
 			</div>
 
 			<div class="HDD"> 
@@ -58,6 +58,15 @@ if(getUpTime()[0] === 1): $uppy = $uptime . " jour"; else: $uppy = $uptime . " j
 				</div> 
 				<span><?= getHDDUsage();?>%</span> 
 			</div>
+			
+			<div class="Latency"> 
+				<span>Latency</span> 
+				<div class="ui-progress-bar ui-container" id="Latencybar"> 
+					<div class="ui-progress" style="width: <?= getLatency()[0]; ?>%"></div> 
+				</div> 
+				<span><?= getLatency()[1];?> ms</span> 
+			</div>
+			
 		</div>
 
 		<!-- liens -->
