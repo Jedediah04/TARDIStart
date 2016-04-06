@@ -13,7 +13,7 @@ function getUpTime() {
     return [$up_days, $up_hours, $up_mins];
 }
 
-function getCPULoad() {
+function getCpuLoad() {
     // CPU USAGE
     $loads = sys_getloadavg();
     $core_nums = trim(shell_exec("grep -P '^processor' /proc/cpuinfo|wc -l"));
@@ -21,7 +21,7 @@ function getCPULoad() {
     return $load;
 }
 
-function getRAMUsage() {
+function getRamUsage() {
     $free    = shell_exec('grep MemFree /proc/meminfo | awk \'{print $2}\'');
     $buffers = shell_exec('grep Buffers /proc/meminfo | awk \'{print $2}\'');
     $cached  = shell_exec('grep Cached /proc/meminfo | awk \'{print $2}\'');
@@ -38,14 +38,4 @@ function getHDDUsage() {
     $freeHDD = $ddtotal - $ddfree; 
     $percentHDD = ($freeHDD/$ddtotal)*100; 
     return round($percentHDD,0); 
-}
-
-function getLatency() {
-	$ipAddress = $_SERVER["REMOTE_ADDR"];
-	$timeStart = microtime(true);
-	$resultArray = exec("ping ".$ipAddress." -c 1 -i 0.2");
-	$timeEnd = microtime(true);
-	$latency = intval(($timeEnd - $timeStart)*1000);
-	return [$latency*100/500, $latency];
-	
 }
