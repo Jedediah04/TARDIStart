@@ -248,7 +248,18 @@ a:hover, a:active {
 	text-align:center;
 }
 
+.Latency {
+	display:inline-block;
+	margin-left:10px;
+	margin-right:10px;
+}
 
+#Latencybar {
+	position: relative;
+  	margin-left: auto;
+  	margin-right: auto;
+	text-align:center;
+}
 
 /* BARRE DE PROGRESSION */
 /*
