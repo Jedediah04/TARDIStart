@@ -15,6 +15,8 @@
 <?php include_once('./statsServ.php'); 
 $uptime = getUpTime()[0];
 if(getUpTime()[0] === 1): $uppy = $uptime . " jour"; else: $uppy = $uptime . " jours"; endif;
+$json = file_get_contents('service.json');
+$data = json_decode($json, true);
 ?>
 
 <!-- particles.js container -->
@@ -68,17 +70,17 @@ if(getUpTime()[0] === 1): $uppy = $uptime . " jour"; else: $uppy = $uptime . " j
 					SEEDBOX<br>
 					<img src="./assets/img/link.png">
 				</div>
-				<a href="https://domain.tld/rutorrent" TITLE="ruTorrent">
-					<span class="fa fa-download"></span>
-					<div id="lien">ruTorrent</div>
+				<a href="<?= $data[0][lien] ?>" TITLE="<?= $data[0][titre] ?>">
+					<span class="fa <?= $data[0][icone] ?>"></span>
+					<div id="lien"><?= $data[0][titre] ?></div>
 				</a>
-				<a href="https://app.plex.tv/web/app" TITLE="Plex">
-					<span class="fa fa-play-circle-o"></span>
-					<div id="lien">Plex</div>
+				<a href="<?= $data[1][lien] ?>" TITLE="<?= $data[1][titre] ?>">
+					<span class="fa <?= $data[1][icone] ?>"></span>
+					<div id="lien"><?= $data[1][titre] ?></div>
 				</a>
-				<a href="https://domain.tld/sickrage/" TITLE="Sickrage">
-					<span class="fa fa-television"></span>
-					<div id="lien"> Sickrage</div>
+				<a href="<?= $data[2][lien] ?>/" TITLE="<?= $data[2][titre] ?>">
+					<span class="fa <?= $data[2][icone] ?>"></span>
+					<div id="lien"><?= $data[2][titre] ?></div>
 				</a>
 			</div>
 
@@ -87,17 +89,17 @@ if(getUpTime()[0] === 1): $uppy = $uptime . " jour"; else: $uppy = $uptime . " j
 					CLOUD<br>
 					<img src="./assets/img/link.png">
 				</div>
-				<a href="https://rss.domain.tld" TITLE="Selfoss">
-					<span class="fa fa-rss-square"></span>
-					<div id="lien">Selfoss</div>
+				<a href="<?= $data[3][lien] ?>" TITLE="<?= $data[3][titre] ?>">
+					<span class="fa <?= $data[3][icone] ?>"></span>
+					<div id="lien"><?= $data[3][titre] ?></div>
 				</a>
-				<a href="https://webmail.domain.tld" TITLE="Rainloop">
-					<span class="fa fa-envelope"></span>
-					<div id="lien"> Rainloop</div>
+				<a href="<?= $data[4][lien] ?>" TITLE="<?= $data[4][titre] ?>">
+					<span class="fa <?= $data[4][icone] ?>"></span>
+					<div id="lien"><?= $data[4][titre] ?></div>
 				</a>
-				<a href="https://cloud.domain.tld" TITLE="ownCloud">
-					<span class="fa fa-cloud"></span>
-					<div id="lien">ownCloud</div>
+				<a href="<?= $data[5][lien] ?>" TITLE="<?= $data[5][titre] ?>">
+					<span class="fa <?= $data[5][icone] ?>"></span>
+					<div id="lien"><?= $data[5][titre] ?></div>
 				</a>
 			</div>
 
@@ -105,17 +107,17 @@ if(getUpTime()[0] === 1): $uppy = $uptime . " jour"; else: $uppy = $uptime . " j
 			<br>
 
 			<div class="HOSTING">
-				<a href="https://img.domain.tld" TITLE="Lutim">
-					<span class="fa fa-file-image-o"></span>
-					<div id="lien">Lutim</div>
+				<a href="<?= $data[6][lien] ?>" TITLE="<?= $data[6][titre] ?>">
+					<span class="fa <?= $data[6][icone] ?>"></span>
+					<div id="lien"><?= $data[6][titre] ?></div>
 				</a>
-				<a href="https://file.domain.tld" TITLE="Lufi">
-					<span class="fa fa-file-o"></span>
-					<div id="lien">Lufi</div>
+				<a href="<?= $data[7][lien] ?>" TITLE="<?= $data[7][titre] ?>">
+					<span class="fa <?= $data[7][icone] ?>"></span>
+					<div id="lien"><?= $data[7][titre] ?></div>
 				</a>
-				<a href="https://paste.domain.tld" TITLE="ZeroBin">
-					<span class="fa fa-file-text-o"></span>
-					<div id="lien">Paste</div>
+				<a href="<?= $data[8][lien] ?>" TITLE="<?= $data[8][titre] ?>">
+					<span class="fa <?= $data[8][icone] ?>"></span>
+					<div id="lien"><?= $data[8][titre] ?></div>
 				</a>
 				<div class="link3">
 					<img src="./assets/img/link_rev.png"><br>
@@ -124,17 +126,17 @@ if(getUpTime()[0] === 1): $uppy = $uptime . " jour"; else: $uppy = $uptime . " j
 			</div>
 
 			<div class="MISC">
-				<a href="https://domain.tld/app/glype" TITLE="Proxy">
-					<span class="fa fa-globe"></span>
-					<div id="lien">Proxy</div>
+				<a href="<?= $data[9][lien] ?>" TITLE="<?= $data[9][titre] ?>">
+					<span class="fa <?= $data[9][icone] ?>"></span>
+					<div id="lien"><?= $data[9][titre] ?></div>
 				</a>
-				<a href="https://codiad.domain.tld" TITLE="Codiad">
-					<span class="fa fa-file-code-o"></span>
-					<div id="lien">Codiad</div>
+				<a href="<?= $data[10][lien] ?>" TITLE="<?= $data[10][titre] ?>">
+					<span class="fa <?= $data[10][icone] ?>"></span>
+					<div id="lien"><?= $data[10][titre] ?></div>
 				</a>
-				<a href="https://shield.domain.tld" TITLE="LibreNMS">
-					<span class="fa fa-bar-chart"></span>
-					<div id="lien">SHIELD</div>
+				<a href="<?= $data[11][lien] ?>" TITLE="<?= $data[11][titre] ?>">
+					<span class="fa <?= $data[11][icone] ?>"></span>
+					<div id="lien"><?= $data[11][titre] ?></div>
 				</a>
 				<div class="link4">
 					<img src="./assets/img/link_rev.png"><br>

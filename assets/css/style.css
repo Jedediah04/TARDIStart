@@ -142,8 +142,11 @@ a:hover, a:active {
 	font-size:10pt;
 }
 
-/* ---- particles.js container ---- */
+table {
+	width: 100%; 
+}
 
+/* ---- particles.js container ---- */
 #particles-js{
 	position:absolute;	
 	width: 100%;
