@@ -39,3 +39,12 @@ function getHDDUsage() {
     $percentHDD = ($freeHDD/$ddtotal)*100; 
     return round($percentHDD,0); 
 }
+
+function getLatency() {
+	$ipAddress = $_SERVER["REMOTE_ADDR"];
+	$timeStart = microtime(true);
+	fsockopen($ipAddress, 80 , $errno, $errstr, 1);
+	$timeEnd = microtime(true);
+	$latency = intval(($timeEnd - $timeStart)*1000);
+	return [$latency*100/500, $latency];
+}
