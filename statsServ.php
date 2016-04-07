@@ -42,10 +42,14 @@ function getHDDUsage() {
 
 function getLatency() {
 	$ipAddress = $_SERVER["REMOTE_ADDR"];
-	$timeStart = microtime(true);
-	fsockopen($ipAddress, 80 , $errno, $errstr, 0.249);
+	$timeStart =  microtime(true);
+	exec("ping ".$ipAddress." -w 0.25 -c 1");
 	$timeEnd = microtime(true);
 	$latency = intval(($timeEnd - $timeStart)*1000);
+	if($latency >= 250)
+	{
+		$latency = 250;
+	}
 	return [$latency*100/250, $latency];
 }
 
