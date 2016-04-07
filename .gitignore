@@ -1,2 +1,4 @@
 .idea/
 assets/bower/
+bower/json
+.gitignore
