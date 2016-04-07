@@ -37,14 +37,49 @@ function getHDDUsage() {
     $ddtotal = disk_total_space("/home"); 
     $freeHDD = $ddtotal - $ddfree; 
     $percentHDD = ($freeHDD/$ddtotal)*100; 
-    return round($percentHDD,0); 
+    return round($percentHDD,0);
 }
 
 function getLatency() {
 	$ipAddress = $_SERVER["REMOTE_ADDR"];
 	$timeStart = microtime(true);
-	fsockopen($ipAddress, 80 , $errno, $errstr, 0.5);
+	fsockopen($ipAddress, 80 , $errno, $errstr, 0.249);
 	$timeEnd = microtime(true);
 	$latency = intval(($timeEnd - $timeStart)*1000);
-	return [$latency*100/500, $latency];
+	return [$latency*100/250, $latency];
 }
+
+
+
+switch ($_GET['function']){
+	case getCpuLoad:
+		echo getCpuLoad();
+	break;
+	
+	case getRamUsage:
+		echo getRamUsage()[0];
+	break;
+	
+	case getRamUsageBar:
+		echo getRamUsage()[1];
+	break;
+	
+	case getHDDUsage:
+		echo getHDDUsage();
+	break;
+	
+	case getLatencyBar:
+		echo getLatency()[0];
+	break;
+	
+	case getLatency:
+		echo getLatency()[1];
+	break;
+	
+	case getHDDUsage:
+		getHDDUsage();
+	break;
+}
+
+
+?>
