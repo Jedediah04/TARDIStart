@@ -8,7 +8,7 @@ $(document).ready(function() {
 	    $('#new').click(function() {
 	    	$.post('save.php', 
 	    	{ 
-	    		value : 'new'
+	    		value : 'newLink'
 	    	},
 	    	function(value, settings) {
 	         window.location.reload();
