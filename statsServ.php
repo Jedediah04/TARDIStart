@@ -40,19 +40,6 @@ function getHDDUsage() {
     return round($percentHDD,0);
 }
 
-function getLatency() {
-	$ipAddress = $_SERVER["REMOTE_ADDR"];
-	$timeStart =  microtime(true);
-	exec("ping ".$ipAddress." -w 0.25 -c 1");
-	$timeEnd = microtime(true);
-	$latency = intval(($timeEnd - $timeStart)*1000);
-	if($latency >= 250)
-	{
-		$latency = 250;
-	}
-	return [$latency*100/250, $latency];
-}
-
 
 
 switch ($_GET['function']){
@@ -71,15 +58,7 @@ switch ($_GET['function']){
 	case getHDDUsage:
 		echo getHDDUsage();
 	break;
-	
-	case getLatencyBar:
-		echo getLatency()[0];
-	break;
-	
-	case getLatency:
-		echo getLatency()[1];
-	break;
-	
+
 	case getHDDUsage:
 		getHDDUsage();
 	break;

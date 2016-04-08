@@ -60,14 +60,6 @@ $data = json_decode($json, true);
 				</div> 
 				<span class="HDDMonitoring"><?= getHDDUsage();?>%</span> 
 			</div>
-			
-			<div class="Latency"> 
-				<span>Latency</span> 
-				<div class="ui-progress-bar ui-container" id="Latencybar"> 
-					<div class="ui-progress" style="width: <?= getLatency()[0]; ?>%"></div> 
-				</div> 
-				<span class="LatencyMonitoring"><?= getLatency()[1];?> ms</span> 
-			</div>
 		</div>
 
 		<!-- liens -->
