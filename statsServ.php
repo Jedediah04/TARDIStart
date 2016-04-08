@@ -37,5 +37,32 @@ function getHDDUsage() {
     $ddtotal = disk_total_space("/home"); 
     $freeHDD = $ddtotal - $ddfree; 
     $percentHDD = ($freeHDD/$ddtotal)*100; 
-    return round($percentHDD,0); 
+    return round($percentHDD,0);
 }
+
+
+
+switch ($_GET['function']){
+	case getCpuLoad:
+		echo getCpuLoad();
+	break;
+	
+	case getRamUsage:
+		echo getRamUsage()[0];
+	break;
+	
+	case getRamUsageBar:
+		echo getRamUsage()[1];
+	break;
+	
+	case getHDDUsage:
+		echo getHDDUsage();
+	break;
+
+	case getHDDUsage:
+		getHDDUsage();
+	break;
+}
+
+
+?>

@@ -8,6 +8,7 @@
 	<link rel="icon" type="ico" href="./assets/img/tardis.ico">
 	<link rel="stylesheet" href="./assets/bower/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+	<script src="./assets/js/refreshMonitoring.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 
@@ -15,10 +16,9 @@
 <?php include_once('./statsServ.php'); 
 $uptime = getUpTime()[0];
 if(getUpTime()[0] === 1): $uppy = $uptime . " jour"; else: $uppy = $uptime . " jours"; endif;
-$json = file_get_contents('service.json');
+$json = file_get_contents('settings/service.json');
 $data = json_decode($json, true);
 ?>
-
 <!-- particles.js container -->
 <div id="particles-js"></div>
 
@@ -39,9 +39,9 @@ $data = json_decode($json, true);
 			<div class="CPU">
 				<span>CPU</span>
 				<div class="ui-progress-bar ui-container" id="CPUbar">
-					<div class="ui-progress" style="width:<?= getCpuLoad();?>%"></div>
+					<div class="ui-progress"  style="width:<?= getCpuLoad();?>%"></div>
 				</div>
-				<span><?= getCpuLoad();?>%</span>
+				<span class="CPUMonitoring"><?= getCpuLoad();?>%</span>
 			</div>
 
 
@@ -50,7 +50,7 @@ $data = json_decode($json, true);
 				<div class="ui-progress-bar ui-container" id="RAMbar">
 					<div class="ui-progress" style="width: <?= getRamUsage()[0]; ?>%"></div>
 				</div>
-				<span><?= getRamUsage()[1];?>%</span>
+				<span class="RAMMonitoring"><?= getRamUsage()[1];?>%</span>
 			</div>
 
 			<div class="HDD"> 
@@ -58,7 +58,7 @@ $data = json_decode($json, true);
 				<div class="ui-progress-bar ui-container" id="HDDbar"> 
 					<div class="ui-progress" style="width: <?= getHDDUsage(); ?>%"></div> 
 				</div> 
-				<span><?= getHDDUsage();?>%</span> 
+				<span class="HDDMonitoring"><?= getHDDUsage();?>%</span> 
 			</div>
 		</div>
 
