@@ -1,13 +1,13 @@
 <?php
 
 function get_json(){
-	$json = file_get_contents('service.json');
+	$json = file_get_contents('./service.json');
 	$data = json_decode($json, true);
 	return $data;
 }
 function set_json($data) {
 	$item = json_encode($data);
-	file_put_contents('service.json', $item);
+	file_put_contents('./service.json', $item);
 }
 
   $value = (isset($_POST['value'])) ? $_POST['value'] : ""; //value posted

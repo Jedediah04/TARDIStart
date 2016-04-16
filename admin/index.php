@@ -5,17 +5,17 @@
 	<meta name="robots" content="noindex">
 	<title>Start - T.A.R.D.I.S.</title>
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-	<link rel="icon" type="ico" href="./assets/img/tardis.ico">
-	<link rel="stylesheet" href="./assets/bower/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+	<link rel="icon" type="ico" href="../assets/img/tardis.ico">
+	<link rel="stylesheet" href="../assets/bower/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="../assets/css/style.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 
-<body>
-<?php include_once('./statsServ.php'); 
+<body style="background-image: url(&quot;../assets/img/bg1.jpg&quot;);">
+<?php include_once('../statsServ.php'); 
 $uptime = getUpTime()[0];
 if(getUpTime()[0] === 1): $uppy = $uptime . " jour"; else: $uppy = $uptime . " jours"; endif;
-$json = file_get_contents('service.json');
+$json = file_get_contents('./service.json');
 $data = json_decode($json, true);
 ?>
 
@@ -54,12 +54,11 @@ $data = json_decode($json, true);
 	</div>
 
 <!-- script recherche -->
-<script src='./assets/bower/jquery/dist/jquery.min.js'></script>
-<script src="./assets/bower/particles.js/particles.min.js"></script>
-<script src="./assets/bower/jeditable/jquery.jeditable.js"></script>
-<script src="./assets/js/search.js"></script>
-<script src="./assets/js/app.js"></script>
-<script src="./assets/js/randomBackground.js"></script>
-<script src="./assets/js/admin.js"></script>
+<script src='../assets/bower/jquery/dist/jquery.min.js'></script>
+<script src="../assets/bower/particles.js/particles.min.js"></script>
+<script src="../assets/bower/jeditable/jquery.jeditable.js"></script>
+<script src="../assets/js/search.js"></script>
+<script src="../assets/js/app.js"></script>
+<script src="../assets/js/admin.js"></script>
 </body>
 </html>
