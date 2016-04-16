@@ -11,7 +11,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 
-<body>
+<body style="background-image: url(&quot;../assets/img/bg1.jpg&quot;);">
 <?php include_once('../statsServ.php'); 
 $uptime = getUpTime()[0];
 if(getUpTime()[0] === 1): $uppy = $uptime . " jour"; else: $uppy = $uptime . " jours"; endif;
@@ -59,7 +59,6 @@ $data = json_decode($json, true);
 <script src="../assets/bower/jeditable/jquery.jeditable.js"></script>
 <script src="../assets/js/search.js"></script>
 <script src="../assets/js/app.js"></script>
-<script src="../assets/js/randomBackground.js"></script>
 <script src="../assets/js/admin.js"></script>
 </body>
 </html>
