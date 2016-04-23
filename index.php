@@ -8,7 +8,7 @@ include_once('./theme.php');
 	<meta name="robots" content="noindex">
 	<title>Start - T.A.R.D.I.S.</title>
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-	<link rel="icon" type="ico" href="./assets/img/tardis.ico">
+	<link rel="icon" type="ico" href=<?php  echo getIcon(); ?>>
 	<link rel="stylesheet" href="./assets/bower/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="./assets/css/style.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
