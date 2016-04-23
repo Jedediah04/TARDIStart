@@ -1,3 +1,6 @@
+<?php
+include_once('./theme.php');
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -150,6 +153,7 @@ $data = json_decode($json, true);
 <!-- script recherche -->
 <script src='./assets/bower/jquery/dist/jquery.min.js'></script>
 <script src="./assets/bower/particles.js/particles.min.js"></script>
+<script src="./assets/js/logo.js"></script>
 <script src="./assets/js/search.js"></script>
 <script src="./assets/js/app.js"></script>
 <script src="./assets/js/randomBackground.js"></script>
