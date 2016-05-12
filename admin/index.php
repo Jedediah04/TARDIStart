@@ -9,6 +9,11 @@
 	<link rel="stylesheet" href="../assets/bower/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="../assets/css/style.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<style>
+	.center .content {
+    		height: 800px;
+	}
+    	</style>
 </head>
 
 <body style="background-image: url(&quot;../assets/img/bg1.jpg&quot;);">
