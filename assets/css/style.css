@@ -294,6 +294,10 @@ Originally found at http://ivan.ly/ui
 
 /* Responsive */
 @media screen and (max-width: 652px){
+    html, body {
+	background: none;
+    }
+
     .CLOUD, .SEEDBOX, .HOSTING, .MISC {
         display: block;
     }
@@ -313,6 +317,10 @@ Originally found at http://ivan.ly/ui
 }
 
 @media screen and (min-width: 320px) and (max-width: 430px){
+    html, body {
+	background: none;
+    }
+	
     #logotop {
         width: 327px;
         height: 103px;
@@ -322,6 +330,10 @@ Originally found at http://ivan.ly/ui
 }
 
 @media (max-width: 320px){
+    html, body {
+	background: none;
+    }
+    
     #logotop {
         width: 213px;
         height: 67px;
