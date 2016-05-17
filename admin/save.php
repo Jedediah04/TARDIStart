@@ -6,7 +6,7 @@ function get_json(){
 	return $data;
 }
 function set_json($data) {
-	$item = json_encode($data);
+	$item = json_encode($data,JSON_PRETTY_PRINT);
 	file_put_contents('./service.json', $item);
 }
 
@@ -31,9 +31,17 @@ if ($value == 'new') {
 
 else {
 	if (isset($_POST['value']) AND isset($_POST['id'])) {
-		$data=get_json();
-		$data[$id[0]][$id[1]]=$value;
-		set_json($data);		
+        if ($id[0] == 'liens'){
+            $data=get_json();
+            $data[dashboard][$id[1]][menus][$id[2]][$id[3]]=$value;
+            set_json($data);
+        }
+        else if($id[0] == 'menu'){
+            $data=get_json();
+            $data[dashboard][$id[1]][nom]=$value;
+            set_json($data);
+        }
+            
 	}
 }
 

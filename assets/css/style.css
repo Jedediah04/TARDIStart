@@ -158,24 +158,24 @@ table {
 	z-index:1;
 }
 
-.SEEDBOX {
+#menu1 {
 	display:inline-block;
 	margin:10px;
 	margin-top:5px;
 }
 
-.CLOUD {
+#menu2 {
 	display:inline-block;
 	margin:10px;
 	margin-top:5px;
 }
 
-.HOSTING {
+#menu3 {
 	display:inline-block;
 	margin:10px;
 }
 
-.MISC {
+#menu4 {
 	display:inline-block;
 	margin:10px;
 }
