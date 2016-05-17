@@ -36,12 +36,12 @@ $data = json_decode($json, true);
 
 		<!-- monitoring -->
 		<div class="monitoring">
-			<div class="CPU">
+			<div  class="CPU" >
 				<span>CPU</span>
 				<div class="ui-progress-bar ui-container" id="CPUbar">
 					<div class="ui-progress" style="width:<?= getCpuLoad();?>%"></div>
 				</div>
-				<span><?= getCpuLoad();?>%</span>
+				<span id="CPU"><?= getCpuLoad();?>%</span>
 			</div>
 
 
@@ -50,7 +50,7 @@ $data = json_decode($json, true);
 				<div class="ui-progress-bar ui-container" id="RAMbar">
 					<div class="ui-progress" style="width: <?= getRamUsage()[0]; ?>%"></div>
 				</div>
-				<span><?= getRamUsage()[1];?>%</span>
+				<span id="RAM"><?= getRamUsage()[1];?>%</span>
 			</div>
 
 			<div class="HDD"> 
@@ -58,7 +58,7 @@ $data = json_decode($json, true);
 				<div class="ui-progress-bar ui-container" id="HDDbar"> 
 					<div class="ui-progress" style="width: <?= getHDDUsage(); ?>%"></div> 
 				</div> 
-				<span><?= getHDDUsage();?>%</span> 
+				<span id="HDD"><?= getHDDUsage();?>%</span> 
 			</div>
 		</div>
 
@@ -153,5 +153,6 @@ $data = json_decode($json, true);
 <script src="./assets/js/search.js"></script>
 <script src="./assets/js/app.js"></script>
 <script src="./assets/js/randomBackground.js"></script>
+<script src="./assets/js/reload.js"></script>
 </body>
 </html>
