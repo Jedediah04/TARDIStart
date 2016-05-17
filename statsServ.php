@@ -16,8 +16,8 @@ function getUpTime() {
 function getCpuLoad() {
     // CPU USAGE
     $loads = sys_getloadavg();
-    $core_nums = trim(shell_exec("grep -P '^processor' /proc/cpuinfo|wc -l"));
-    $load = round($loads[0]/($core_nums + 1)*100, 0);
+    $core_nums = trim(shell_exec("cat /proc/cpuinfo | grep processor | wc -l"));
+    $load = round($loads[0]/($core_nums)*100, 0);
     return $load;
 }
 
