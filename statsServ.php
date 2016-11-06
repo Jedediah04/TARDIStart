@@ -2,15 +2,24 @@
 
 function getUpTime() {
     // UPTIME
-    exec("uptime", $system); // get the uptime stats
-    $string = $system[0]; // this might not be necessary
-    $uptime = explode(" ", $string); // break up the stats into an array
-    $up_days = $uptime[3]; // grab the days from the array
-    $hours = explode(":", $uptime[6]); // split up the hour:min in the stats
-    $up_hours = $hours[0]; // grab the hours
-    $mins = $hours[1]; // get the mins
-    $up_mins = str_replace(",", "", $mins); // strip the comma from the mins
-    return [$up_days, $up_hours, $up_mins];
+    $data_uptime = file_get_contents('/proc/uptime');
+    $data_uptime = explode(' ', $data_uptime);
+    $data_uptime = trim($data_uptime[0]);
+    $time = [];
+    $time['min'] = $data_uptime / 60;
+    $time['hours'] = $time['min'] / 60;
+    $time['days'] = floor($time['hours'] / 24);
+    $time['hours'] = floor($time['hours'] - $time['days'] * 24);
+    $time['min'] = floor($time['min'] - $time['days'] * 60 * 24 - $time['hours'] * 60);
+    $result = '';
+        if ($time['days'] != 0) {
+            $result = $time['days'] . ' jours ';
+        }
+        if ($time['hours'] != 0) {
+            $result .= $time['hours'] . ' h ';
+        }
+        $result .= $time['min'] . ' min';
+        return $result;
 }
 
 function getCpuLoad() {
