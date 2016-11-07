@@ -13,8 +13,7 @@
 
 <body>
 <?php include_once('./statsServ.php'); 
-$uptime = getUpTime()[0];
-if(getUpTime()[0] === 1): $uppy = $uptime . " jour"; else: $uppy = $uptime . " jours"; endif;
+$uppy = getUpTime();
 $json = file_get_contents('admin/service.json');
 $data = json_decode($json, true);
 ?>
