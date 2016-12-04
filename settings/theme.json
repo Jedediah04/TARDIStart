@@ -1,0 +1,15 @@
+{
+	"theme-focus":"Start-T.A.R.D.I.S",
+	"theme" : 
+	[{
+		"title":"Start-T.A.R.D.I.S",
+		"logo":"./assets/img/logo_start_ombre.png",
+		"icon":"./assets/img/tardis.ico",
+		"background":
+		[
+			"./assets/img/bg1.jpg",
+			"./assets/img/bg2.jpg",
+			"./assets/img/bg3.jpg"
+		]	
+	}]
+}
