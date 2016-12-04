@@ -33,28 +33,32 @@ $data = json_decode($json, true);
 		<!-- logo -->
 		<div id="logotop"></div>
 		<br>
-
-  <table>
-    <thead>
-      <tr>
-        <th>Lien</th>
-        <th>Titre</th>
-        <th>Icone</th>
-        <th>Preview</th>
-      </tr>
-    </thead>
-    <tbody>
-    <?php foreach ($data as $item) { ?>
-      <tr>
-        <td class= "editable" id=<?= $item[id] ?>_lien><?= $item[lien] ?></td>
-        <td class= "editable" id=<?= $item[id] ?>_titre><?= $item[titre] ?></td>
-        <td class= "editable" id=<?= $item[id] ?>_icone><?= $item[icone] ?></td>
-        <td><i class="fa fa-2x <?= $item[icone] ?>"></i></td>
-       </tr>
-	<?php } ?>
-    </tbody>
-  </table>
-	
+<?php foreach ($data[dashboard] as $menu => $liens) { ?>
+      <table>
+        <thead>
+        <tr> <td class= "editable" id=menu_<?= $menu?>><?=$liens[nom] ?> </td></tr>
+          <tr>
+            <th>Lien</th>
+            <th>Titre</th>
+            <th>Icone</th>
+            <th>Preview</th>
+          </tr>
+        </thead>
+        <tbody>
+        
+          
+          <?php foreach ($liens[menus] as $item) { ?>
+            <tr>           
+            <td class= "editable" id=liens_<?= $menu.'_'.$item[id] ?>_lien><?= $item[lien] ?></td>
+            <td class= "editable" id=liens_<?= $menu.'_'.$item[id] ?>_titre><?= $item[titre] ?></td>
+            <td class= "editable" id=liens_<?= $menu.'_'.$item[id] ?>_icone><?= $item[icone] ?></td>
+            <td><i class="fa fa-2x <?= $item[icone] ?>"></i></td>
+            </tr>
+          <?php } ?>
+           
+        </tbody>
+      </table>
+<?php } ?>
 		</div>
 	</div>
 
