@@ -11,10 +11,20 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 
+<!-- script recherche -->
+<script src='./assets/bower/jquery/dist/jquery.min.js'></script>
+<script src="./assets/bower/particles.js/particles.min.js"></script>
+<script src="./assets/js/app.js"></script>
+<script src="./assets/js/randomBackground.js"></script>
+
 <body>
-<?php include_once('./statsServ.php'); 
+<?php
+
+include_once('./statsServ.php');
+include_once('./assets/js/search.php');
+
 $uppy = getUpTime();
-$json = file_get_contents('admin/service.json');
+$json = file_get_contents('settings/service.json');
 $data = json_decode($json, true);
 ?>
 
@@ -145,12 +155,5 @@ $data = json_decode($json, true);
 		</div>
 	</div>
 </div>
-
-<!-- script recherche -->
-<script src='./assets/bower/jquery/dist/jquery.min.js'></script>
-<script src="./assets/bower/particles.js/particles.min.js"></script>
-<script src="./assets/js/search.js"></script>
-<script src="./assets/js/app.js"></script>
-<script src="./assets/js/randomBackground.js"></script>
 </body>
 </html>
