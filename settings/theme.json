@@ -1,0 +1,24 @@
+{
+	"focusTheme":"Stargate",
+	"theme":
+	[
+		{
+			"id":"0",
+			"name":"DoctorWho",
+			"icon":".\/assets\/img\/tardis.ico",
+			"title":"logo_start_ombre.png",
+			"background":["bg1.jpg","bg1.png"]
+		},
+		{
+			"id":"1",
+			"name":"Stargate",
+			"icon":".\/assets\/img\/tardis.ico",
+			"title":"https:\/\/alostcritic.files.wordpress.com\/2015\/05\/stargate_sgu_cast.jpg",
+			"background":
+			[
+				"http:\/\/wallpapercave.com\/wp\/hmh4bOO.png",
+				"https:\/\/hdwallsbox.com\/wallpapers\/l\/1920x1080\/64\/stargate-1920x1080-63207.jpg"
+			]
+		}
+	]
+}

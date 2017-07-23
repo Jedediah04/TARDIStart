@@ -12,9 +12,15 @@ $(document).ready(function() {
     });
   }
 
+  function callbackTheme(value, settings) {
+    $("#theme").load(location.href + " #theme", function() {
+        $('#theme .editable').editable('./saveTheme.php', {callback:callbackTheme, onblur : "submit"});
+    });
+  }
+
   $('#service .editable').editable('./saveService.php', {callback:callbackService, onblur : "submit"});
   $('#shortcut .editable').editable('./saveShortcut.php', {callback:callbackShortcut, onblur : "submit"});
-
+  $('#theme .editable').editable('./saveTheme.php', {callback:callbackTheme, onblur : "submit"});
 });
 
 $(document).ready(function() { 

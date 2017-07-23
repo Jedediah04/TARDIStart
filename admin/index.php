@@ -87,7 +87,44 @@ $dataShortcut = json_decode($jsonShortcut, true);
         </tr>
     <?php } ?>
       </tbody>
-    </table>  
+    </table> 
+<?php
+$jsonTheme = file_get_contents('../settings/theme.json');
+$dataTheme = json_decode($jsonTheme, true);
+?>
+    <div id="theme">
+      <h1>Theme settings</h1>
+      Name of the current theme : <span class="editable" id="focusTheme"><?php echo $dataTheme[focusTheme]; ?></span>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Icon</th>
+            <th>Title</th>
+            <th>Background</th>
+          </tr>
+        </thead>
+        <tbody>
+        <?php foreach ($dataTheme[theme] as $itemTheme) { ?>
+          <tr>
+            <td class= "editable" id=<?= $itemTheme[id] ?>_name><?= $itemTheme[name] ?></td>
+            <td class= "editable" id=<?= $itemTheme[id] ?>_icon><?= $itemTheme[icon] ?></td>
+            <td class= "editable" id=<?= $itemTheme[id] ?>_title><?= $itemTheme[title] ?></td>
+            <td>
+            <table>
+              <?php
+              foreach ($itemTheme[background] as $keyThemeBackground => $valueThemeBackground) {
+              ?>
+                <tr><span class= "editable" id=<?php echo $itemTheme[id]."_background_".$keyThemeBackground; ?> ><?php echo $valueThemeBackground; ?></span></tr><br>
+              <?php
+              } ?>
+            </table>
+            </td>
+          </tr>
+      <?php } ?>
+        </tbody>
+      </table>  
+    </div>
     </div>
 	</div>
 </body>
