@@ -1,13 +1,20 @@
 $(document).ready(function() { 
-      $('#service .editable').editable('./saveService.php', { 
-        callback : function(value, settings) { 
-        window.location.reload(); 
-      }}); 
- 
-      $('#shortcut .editable').editable('./saveShortcut.php', { 
-        callback : function(value, settings) { 
-        window.location.reload(); 
-      }}); 
+
+  function callbackService(value, settings) {
+      $("#service").load(location.href + " #service", function() {
+          $('#service .editable').editable('./saveService.php', {callback:callback});
+      });
+  }
+
+  function callbackShortcut(value, settings) {
+      $("#shortcut").load(location.href + " #shortcut", function() {
+          $('#shortcut .editable').editable('./saveShortcut.php', {callback:callbackShortcut});
+      });
+  }
+
+  $('#service .editable').editable('./saveService.php', {callback:callbackService});
+  $('#shortcut .editable').editable('./saveShortcut.php', {callback:callbackShortcut});
+
 });
 
 $(document).ready(function() { 
