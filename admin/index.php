@@ -1,11 +1,34 @@
+<?php
+
+function get_json($JSONFile){
+  $json = file_get_contents($JSONFile);
+  $data = json_decode($json, true);
+  return $data;
+}
+
+$data = get_json('../settings/theme.json');
+$focusTheme = $data[focusTheme];
+
+foreach ($data[theme] as $element) {
+  if($focusTheme == $element[name]){
+      $iconTheme = $element[icon];
+      $titlePage = $element[title];
+  }
+}
+
+$dataTheme = get_json('../settings/theme.json');
+$dataService = get_json('../settings/service.json');
+$dataShortcut = get_json('../settings/shortcut.json');
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8">
 	<meta name="robots" content="noindex">
-	<title>Start - T.A.R.D.I.S.</title>
+  <title><?php echo $titlePage; ?></title>
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-	<link rel="icon" type="ico" href="../assets/img/tardis.ico">
+  <link rel="icon" type="ico" href=.<?php echo $iconTheme;?>>
 	<link rel="stylesheet" href="../assets/bower/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="../assets/css/style.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -13,7 +36,7 @@
 	.center .content {
     		height: 800px;
 	}
-    	</style>
+  </style>
 </head>
 
 <!-- script recherche -->
@@ -24,16 +47,6 @@
 <script src="../assets/js/admin.js"></script>
 
 <body style="background-image: url(&quot;../assets/img/bg1.jpg&quot;);">
-
-<?php
-include_once('../statsServ.php'); 
-
-$uptime = getUpTime()[0];
-$jsonService = file_get_contents('../settings/service.json');
-$dataService = json_decode($jsonService, true);
-
-if(getUpTime()[0] === 1): $uppy = $uptime . " jour"; else: $uppy = $uptime . " jours"; endif;
-?>
 
 <!-- particles.js container -->
 <div id="particles-js"></div>
@@ -66,11 +79,6 @@ if(getUpTime()[0] === 1): $uppy = $uptime . " jour"; else: $uppy = $uptime . " j
       </tbody>
     </table>
 
-<?php
-$jsonShortcut = file_get_contents('../settings/shortcut.json');
-$dataShortcut = json_decode($jsonShortcut, true);
-?>
-
     <h1>Research shortcut</h1>
     <table id="shortcut">
       <thead>
@@ -87,12 +95,9 @@ $dataShortcut = json_decode($jsonShortcut, true);
         </tr>
     <?php } ?>
       </tbody>
-    </table> 
-<?php
-$jsonTheme = file_get_contents('../settings/theme.json');
-$dataTheme = json_decode($jsonTheme, true);
-?>
+    </table>
     <div id="theme">
+
       <h1>Theme settings</h1>
       Name of the current theme : <span class="editable" id="focusTheme"><?php echo $dataTheme[focusTheme]; ?></span>
       <table>
@@ -100,7 +105,8 @@ $dataTheme = json_decode($jsonTheme, true);
           <tr>
             <th>Name</th>
             <th>Icon</th>
-            <th>Title</th>
+            <th>Title of the page</th>
+            <th>Title image</th>
             <th>Background</th>
           </tr>
         </thead>
@@ -110,6 +116,8 @@ $dataTheme = json_decode($jsonTheme, true);
             <td class= "editable" id=<?= $itemTheme[id] ?>_name><?= $itemTheme[name] ?></td>
             <td class= "editable" id=<?= $itemTheme[id] ?>_icon><?= $itemTheme[icon] ?></td>
             <td class= "editable" id=<?= $itemTheme[id] ?>_title><?= $itemTheme[title] ?></td>
+            <td class= "editable" id=<?= $itemTheme[id] ?>_titleImage><?= $itemTheme[titleImage] ?></td>
+
             <td>
             <table>
               <?php

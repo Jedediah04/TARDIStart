@@ -1,1 +1,37 @@
-[{"id":"0","shortcut":"","link":"https:\/\/duckduckgo.com\/?q="},{"id":"1","shortcut":"!yk","link":"http:\/\/www.soku.com\/search_video\/q_"},{"id":"2","shortcut":"!y","link":"https:\/\/www.youtube.com\/results?search_query="},{"id":"3","shortcut":"!f","link":"https:\/\/framasoft.org"},{"id":"4","shortcut":"!h","link":"https:\/\/google.fr"},{"id":"5","shortcut":"!b","link":"https:\/\/www.bing.com\/search?q="},{"id":"6","shortcut":"!w","link":"http:\/\/en.wikipedia.org\/w\/index.php?search="}]
+[
+	{
+		"id":"0",
+		"shortcut":"",
+		"link":"https:\/\/duckduckgo.com\/?q="
+	},
+	{
+		"id":"1",
+		"shortcut":"!yk",
+		"link":"http:\/\/www.soku.com\/search_video\/q_"
+	},
+	{
+		"id":"2",
+		"shortcut":"!y",
+		"link":"https:\/\/www.youtube.com\/results?search_query="
+	},
+	{
+		"id":"3",
+		"shortcut":"!f",
+		"link":"https:\/\/framasoft.org"
+	},
+	{
+		"id":"4",
+		"shortcut":"!h",
+		"link":"https:\/\/google.fr"
+	},
+	{
+		"id":"5",
+		"shortcut":"!b",
+		"link":"https:\/\/www.bing.com\/search?q="
+	},
+	{
+		"id":"6",
+		"shortcut":"!w",
+		"link":"http:\/\/en.wikipedia.org\/w\/index.php?search="
+	}
+]

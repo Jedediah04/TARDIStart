@@ -1,10 +1,11 @@
 <?php
 
-function get_json(){
-	$json = file_get_contents('../settings/theme.json');
+function get_json($JSONFile){
+	$json = file_get_contents($JSONFile);
 	$data = json_decode($json, true);
 	return $data;
 }
+
 
 function set_json($data) {
 	$item = json_encode($data);
@@ -18,7 +19,7 @@ $id = explode("_",$id);
 
   
 if ($value == 'new') {
-	$data=get_json();
+	$data=get_json('../settings/theme.json');
 	$last=end($data);
 	$last_id=$last['id'];
 	$data[] = array(
@@ -31,7 +32,7 @@ if ($value == 'new') {
 }
 else {
 	if (isset($_POST['value']) AND isset($_POST['id'])) {
-		$data = get_json();
+		$data = get_json('../settings/theme.json');
 		if($id[0] == "focusTheme"){
 			$data[focusTheme] = $value;
 		}

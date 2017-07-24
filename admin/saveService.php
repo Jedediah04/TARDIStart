@@ -1,7 +1,7 @@
 <?php
 
-function get_json(){
-	$json = file_get_contents('../settings/service.json');
+function get_json($JSONFile){
+	$json = file_get_contents($JSONFile);
 	$data = json_decode($json, true);
 	return $data;
 }
@@ -18,7 +18,7 @@ $id = explode("_",$id);
 
   
 if ($value == 'new') {
-	$data=get_json();
+	$data=get_json('../settings/service.json');
 	$last=end($data);
 	$last_id=$last['id'];
 	$data[] = array(
@@ -31,7 +31,7 @@ if ($value == 'new') {
 }
 else {
 	if (isset($_POST['value']) AND isset($_POST['id'])) {
-		$data = get_json();
+		$data = get_json('../settings/service.json');
 		$data[$id[0]][$id[1]] = $value;
 		set_json($data);		
 	}

@@ -1,33 +1,51 @@
+<?php
+
+include_once('./statsServ.php');
+
+function get_json($JSONFile){
+	$json = file_get_contents($JSONFile);
+	$data = json_decode($json, true);
+	return $data;
+}
+
+$data = get_json('./settings/theme.json');
+$focusTheme = $data[focusTheme];
+
+foreach ($data[theme] as $element) {
+	if($focusTheme == $element[name]){
+			$iconTheme = $element[icon];
+			$titlePage = $element[title];
+	}
+}
+
+$uppy = getUpTime();
+$jsonService = file_get_contents('./settings/service.json');
+$dataService = json_decode($jsonService, true);
+?>
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8">
 	<meta name="robots" content="noindex">
-	<title>Start - T.A.R.D.I.S.</title>
+	<title><?php echo $titlePage; ?></title>
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-	<link rel="icon" type="ico" href="./assets/img/tardis.ico">
+	<link rel="icon" type="ico" href="<?php echo $iconTheme;?>">
 	<link rel="stylesheet" href="./assets/bower/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="./assets/css/style.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 
-<!-- script recherche -->
+<!-- script javascript -->
 <script src='./assets/bower/jquery/dist/jquery.min.js'></script>
 <script src="./assets/bower/particles.js/particles.min.js"></script>
 <script src="./assets/js/app.js"></script>
-<script src="./assets/js/randomBackground.js"></script>
-
-<body>
 <?php
-
-include_once('./statsServ.php');
 include_once('./assets/js/search.php');
-
-$uppy = getUpTime();
-$json = file_get_contents('settings/service.json');
-$data = json_decode($json, true);
+include_once('./assets/js/randomBackground.php');
 ?>
 
+
+<body>
 <!-- particles.js container -->
 <div id="particles-js"></div>
 
@@ -79,17 +97,17 @@ $data = json_decode($json, true);
 					SEEDBOX<br>
 					<img src="./assets/img/link.png">
 				</div>
-				<a href="<?= $data[0][lien] ?>" TITLE="<?= $data[0][titre] ?>">
-					<span class="fa <?= $data[0][icone] ?>"></span>
-					<div id="lien"><?= $data[0][titre] ?></div>
+				<a href="<?= $dataService[0][lien] ?>" TITLE="<?= $dataService[0][titre] ?>">
+					<span class="fa <?= $dataService[0][icone] ?>"></span>
+					<div id="lien"><?= $dataService[0][titre] ?></div>
 				</a>
-				<a href="<?= $data[1][lien] ?>" TITLE="<?= $data[1][titre] ?>">
-					<span class="fa <?= $data[1][icone] ?>"></span>
-					<div id="lien"><?= $data[1][titre] ?></div>
+				<a href="<?= $dataService[1][lien] ?>" TITLE="<?= $dataService[1][titre] ?>">
+					<span class="fa <?= $dataService[1][icone] ?>"></span>
+					<div id="lien"><?= $dataService[1][titre] ?></div>
 				</a>
-				<a href="<?= $data[2][lien] ?>/" TITLE="<?= $data[2][titre] ?>">
-					<span class="fa <?= $data[2][icone] ?>"></span>
-					<div id="lien"><?= $data[2][titre] ?></div>
+				<a href="<?= $dataService[2][lien] ?>/" TITLE="<?= $dataService[2][titre] ?>">
+					<span class="fa <?= $dataService[2][icone] ?>"></span>
+					<div id="lien"><?= $dataService[2][titre] ?></div>
 				</a>
 			</div>
 
@@ -98,17 +116,17 @@ $data = json_decode($json, true);
 					CLOUD<br>
 					<img src="./assets/img/link.png">
 				</div>
-				<a href="<?= $data[3][lien] ?>" TITLE="<?= $data[3][titre] ?>">
-					<span class="fa <?= $data[3][icone] ?>"></span>
-					<div id="lien"><?= $data[3][titre] ?></div>
+				<a href="<?= $dataService[3][lien] ?>" TITLE="<?= $dataService[3][titre] ?>">
+					<span class="fa <?= $dataService[3][icone] ?>"></span>
+					<div id="lien"><?= $dataService[3][titre] ?></div>
 				</a>
-				<a href="<?= $data[4][lien] ?>" TITLE="<?= $data[4][titre] ?>">
-					<span class="fa <?= $data[4][icone] ?>"></span>
-					<div id="lien"><?= $data[4][titre] ?></div>
+				<a href="<?= $dataService[4][lien] ?>" TITLE="<?= $dataService[4][titre] ?>">
+					<span class="fa <?= $dataService[4][icone] ?>"></span>
+					<div id="lien"><?= $dataService[4][titre] ?></div>
 				</a>
-				<a href="<?= $data[5][lien] ?>" TITLE="<?= $data[5][titre] ?>">
-					<span class="fa <?= $data[5][icone] ?>"></span>
-					<div id="lien"><?= $data[5][titre] ?></div>
+				<a href="<?= $dataService[5][lien] ?>" TITLE="<?= $dataService[5][titre] ?>">
+					<span class="fa <?= $dataService[5][icone] ?>"></span>
+					<div id="lien"><?= $dataService[5][titre] ?></div>
 				</a>
 			</div>
 
@@ -116,17 +134,17 @@ $data = json_decode($json, true);
 			<br>
 
 			<div class="HOSTING">
-				<a href="<?= $data[6][lien] ?>" TITLE="<?= $data[6][titre] ?>">
-					<span class="fa <?= $data[6][icone] ?>"></span>
-					<div id="lien"><?= $data[6][titre] ?></div>
+				<a href="<?= $dataService[6][lien] ?>" TITLE="<?= $dataService[6][titre] ?>">
+					<span class="fa <?= $dataService[6][icone] ?>"></span>
+					<div id="lien"><?= $dataService[6][titre] ?></div>
 				</a>
-				<a href="<?= $data[7][lien] ?>" TITLE="<?= $data[7][titre] ?>">
-					<span class="fa <?= $data[7][icone] ?>"></span>
-					<div id="lien"><?= $data[7][titre] ?></div>
+				<a href="<?= $dataService[7][lien] ?>" TITLE="<?= $dataService[7][titre] ?>">
+					<span class="fa <?= $dataService[7][icone] ?>"></span>
+					<div id="lien"><?= $dataService[7][titre] ?></div>
 				</a>
-				<a href="<?= $data[8][lien] ?>" TITLE="<?= $data[8][titre] ?>">
-					<span class="fa <?= $data[8][icone] ?>"></span>
-					<div id="lien"><?= $data[8][titre] ?></div>
+				<a href="<?= $dataService[8][lien] ?>" TITLE="<?= $dataService[8][titre] ?>">
+					<span class="fa <?= $dataService[8][icone] ?>"></span>
+					<div id="lien"><?= $dataService[8][titre] ?></div>
 				</a>
 				<div class="link3">
 					<img src="./assets/img/link_rev.png"><br>
@@ -135,17 +153,17 @@ $data = json_decode($json, true);
 			</div>
 
 			<div class="MISC">
-				<a href="<?= $data[9][lien] ?>" TITLE="<?= $data[9][titre] ?>">
-					<span class="fa <?= $data[9][icone] ?>"></span>
-					<div id="lien"><?= $data[9][titre] ?></div>
+				<a href="<?= $dataService[9][lien] ?>" TITLE="<?= $dataService[9][titre] ?>">
+					<span class="fa <?= $dataService[9][icone] ?>"></span>
+					<div id="lien"><?= $dataService[9][titre] ?></div>
 				</a>
-				<a href="<?= $data[10][lien] ?>" TITLE="<?= $data[10][titre] ?>">
-					<span class="fa <?= $data[10][icone] ?>"></span>
-					<div id="lien"><?= $data[10][titre] ?></div>
+				<a href="<?= $dataService[10][lien] ?>" TITLE="<?= $dataService[10][titre] ?>">
+					<span class="fa <?= $dataService[10][icone] ?>"></span>
+					<div id="lien"><?= $dataService[10][titre] ?></div>
 				</a>
-				<a href="<?= $data[11][lien] ?>" TITLE="<?= $data[11][titre] ?>">
-					<span class="fa <?= $data[11][icone] ?>"></span>
-					<div id="lien"><?= $data[11][titre] ?></div>
+				<a href="<?= $dataService[11][lien] ?>" TITLE="<?= $dataService[11][titre] ?>">
+					<span class="fa <?= $dataService[11][icone] ?>"></span>
+					<div id="lien"><?= $dataService[11][titre] ?></div>
 				</a>
 				<div class="link4">
 					<img src="./assets/img/link_rev.png"><br>
