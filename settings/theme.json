@@ -1,0 +1,32 @@
+{
+	"focusTheme":"Space",
+	"theme":
+	[
+		{
+			"id":"0",
+			"name":"DoctorWho",
+			"title":"Docteur who",
+			"icon":".\/assets\/img\/tardis.ico",
+			"titleImage":"logo_start_ombre.png",
+			"background":
+			[
+				"bg1.jpg",
+				"bg2.jpg",
+				"bg3.jpg"
+			]
+		},
+		{
+			"id":"1",
+			"name":"Space",
+			"icon":".\/assets\/img\/space.ico",
+			"title":"Space HomePage",
+			"titleImage":"spaceTitle.png",
+			"background":
+			[
+				"space1.jpg",
+				"space2.jpg",
+				"space3.jpg"
+			]
+		}
+	]
+}
