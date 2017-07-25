@@ -18,7 +18,7 @@ foreach ($data[theme] as $element) {
 
 $dataTheme = get_json('../settings/theme.json');
 $dataService = get_json('../settings/service.json');
-$dataShortcut = get_json('../settings/shortcut.json');
+$dataShortcut = get_json('../settings/shortcut.json');;
 ?>
 
 <!DOCTYPE html>
@@ -74,12 +74,23 @@ $dataShortcut = get_json('../settings/shortcut.json');
           <td class= "editable" id=<?= $itemService[id] ?>_titre><?= $itemService[titre] ?></td>
           <td class= "editable" id=<?= $itemService[id] ?>_icone><?= $itemService[icone] ?></td>
           <td><i class="fa fa-2x <?= $itemService[icone] ?>"></i></td>
-         </tr>
-  	<?php } ?>
+        </tr>
+        <?php
+        }
+        if($dataService == NULL){
+          $itemService = 0;
+        }
+        ?>
+        <tr>
+          <td class= "editable" id=<?= $itemService[id]+1 ?>_lien>Your links</td>
+          <td class= "editable" id=<?= $itemService[id]+1 ?>_titre>Your title</td>
+          <td class= "editable" id=<?= $itemService[id]+1 ?>_icone>Your icon</td>
+          <td><i class="fa fa-2x">Image</i></td>
+        </tr>
       </tbody>
     </table>
 
-    <h1>Research shortcut</h1>
+    <h1>Shortcut settings</h1>
     <table id="shortcut">
       <thead>
         <tr>
@@ -93,7 +104,16 @@ $dataShortcut = get_json('../settings/shortcut.json');
           <td class= "editable" id=<?= $itemShortcut[id] ?>_shortcut><?= $itemShortcut[shortcut] ?></td>
           <td class= "editable" id=<?= $itemShortcut[id] ?>_link><?= $itemShortcut[link] ?></td>
         </tr>
-    <?php } ?>
+        <?php
+        }
+        if($dataShortcut == NULL){
+          $itemShortcut = 0;
+        }
+        ?>
+        <tr>
+          <td class= "editable" id=<?= $itemShortcut[id]+1 ?>_shortcut>Your new shortcut</td>
+          <td class= "editable" id=<?= $itemShortcut[id]+1 ?>_link>Your new link</td>
+        </tr>
       </tbody>
     </table>
     <div id="theme">
@@ -111,6 +131,7 @@ $dataShortcut = get_json('../settings/shortcut.json');
           </tr>
         </thead>
         <tbody>
+
         <?php foreach ($dataTheme[theme] as $itemTheme) { ?>
           <tr>
             <td class= "editable" id=<?= $itemTheme[id] ?>_name><?= $itemTheme[name] ?></td>
@@ -123,13 +144,54 @@ $dataShortcut = get_json('../settings/shortcut.json');
               <?php
               foreach ($itemTheme[background] as $keyThemeBackground => $valueThemeBackground) {
               ?>
-                <tr><span class= "editable" id=<?php echo $itemTheme[id]."_background_".$keyThemeBackground; ?> ><?php echo $valueThemeBackground; ?></span></tr><br>
+                <tr>
+                  <span class= "editable" id=<?php echo $itemTheme[id]."_background_".$keyThemeBackground; ?> ><?php echo $valueThemeBackground; ?></span>
+                </tr><br>
+                <?php
+                if(end($itemTheme[background]) == $valueThemeBackground){
+                ?>
+                  <tr>
+                    <span class= "editable" id=<?php echo $itemTheme[id]; ?>_background_<?php echo $keyThemeBackground+1; ?> >Your new background</span>
+                  </tr>
+                <?php 
+                }
+                ?>
               <?php
-              } ?>
+              } 
+              if($itemTheme[background] == NULL){
+                ?>
+                <tr>
+                  <span class= "editable" id=<?php echo $itemTheme[id]; ?>_background_0 >Your new background</span>
+                </tr>
+                <?php
+              }
+              ?>
             </table>
             </td>
           </tr>
-      <?php } ?>
+          <?php
+          if(end($dataTheme[theme]) == $itemTheme){
+            if($dataTheme == NULL){
+              $itemTheme = 0;
+            }
+            ?>
+            <tr>
+              <td class= "editable" id=<?= $itemTheme[id]+1 ?>_name>Theme name</td>
+              <td class= "editable" id=<?= $itemTheme[id]+1 ?>_icon>Icon of your home page</td>
+              <td class= "editable" id=<?= $itemTheme[id]+1 ?>_title>Title of the page</td>
+              <td class= "editable" id=<?= $itemTheme[id]+1 ?>_titleImage>Image of the home page</td>
+              <td>
+              <table>
+                <tr>
+                  <span class= "editable" id=<?php echo $itemTheme[id]+1; ?>_background_0 >Your new background</span>
+                </tr><br>
+              </table>
+              </td>
+            </tr>
+          <?php
+          }
+        }
+        ?>
         </tbody>
       </table>  
     </div>
