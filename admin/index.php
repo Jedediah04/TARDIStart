@@ -77,16 +77,7 @@ $dataShortcut = get_json('../settings/shortcut.json');;
         </tr>
         <?php
         }
-        if($dataService == NULL){
-          $itemService = 0;
-        }
         ?>
-        <tr>
-          <td class= "editable" id=<?= $itemService[id]+1 ?>_lien>Your links</td>
-          <td class= "editable" id=<?= $itemService[id]+1 ?>_titre>Your title</td>
-          <td class= "editable" id=<?= $itemService[id]+1 ?>_icone>Your icon</td>
-          <td><i class="fa fa-2x">Image</i></td>
-        </tr>
       </tbody>
     </table>
 
@@ -176,10 +167,10 @@ $dataShortcut = get_json('../settings/shortcut.json');;
             }
             ?>
             <tr>
-              <td class= "editable" id=<?= $itemTheme[id]+1 ?>_name>Theme name</td>
-              <td class= "editable" id=<?= $itemTheme[id]+1 ?>_icon>Icon of your home page</td>
-              <td class= "editable" id=<?= $itemTheme[id]+1 ?>_title>Title of the page</td>
-              <td class= "editable" id=<?= $itemTheme[id]+1 ?>_titleImage>Image of the home page</td>
+              <td class= "editable" id=<?= $itemTheme[id]+1 ?>_name>Your new theme name</td>
+              <td class= "editable" id=<?= $itemTheme[id]+1 ?>_icon>Your new icon</td>
+              <td class= "editable" id=<?= $itemTheme[id]+1 ?>_title>Your new title</td>
+              <td class= "editable" id=<?= $itemTheme[id]+1 ?>_titleImage>Your new image</td>
               <td>
               <table>
                 <tr>

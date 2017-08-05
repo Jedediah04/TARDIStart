@@ -6,7 +6,6 @@ function get_json($JSONFile){
 	return $data;
 }
 
-
 function set_json($data) {
 	$item = json_encode($data);
 	file_put_contents('../settings/theme.json', $item);
