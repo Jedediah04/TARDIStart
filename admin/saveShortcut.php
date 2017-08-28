@@ -14,13 +14,24 @@ function set_json($data) {
 $value = (isset($_POST['value'])) ? $_POST['value'] : ""; //value posted
 $id = (isset($_POST['id'])) ? $_POST['id'] : ""; //id of the element
 $id = explode("_",$id);
-  
-if (isset($_POST['value']) AND isset($_POST['id'])) {
-	$data = get_json('../settings/shortcut.json');
-	$data[$id[0]]["id"] = $id[0];
-	$data[$id[0]][$id[1]] = $value;
-	set_json($data);	
+
+$data = get_json('../settings/shortcut.json');
+
+
+#Add or edit
+$data[$id[0]]["id"] = $id[0];
+$data[$id[0]][$id[1]] = $value;
+
+#Delete
+if ($value == NULL AND $id != NULL){
+	$link = $data[$id[0]]["link"];
+	$shortcut = $data[$id[0]]["shortcut"];
+	
+	if($link == NULL && $shortcut == NULL){
+		unset($data[$id[0]]);
+	}
 }
 
+set_json($data);
 
 ?>

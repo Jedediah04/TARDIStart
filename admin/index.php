@@ -161,8 +161,8 @@ $dataShortcut = get_json('../settings/shortcut.json');;
             </td>
           </tr>
           <?php
-          if(end($dataTheme[theme]) == $itemTheme){
-            if($dataTheme == NULL){
+          }
+            if($dataTheme[theme] == NULL){
               $itemTheme = 0;
             }
             ?>
@@ -179,10 +179,6 @@ $dataShortcut = get_json('../settings/shortcut.json');;
               </table>
               </td>
             </tr>
-          <?php
-          }
-        }
-        ?>
         </tbody>
       </table>  
     </div>
