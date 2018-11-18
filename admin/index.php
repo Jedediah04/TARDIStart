@@ -61,7 +61,7 @@ $data = json_decode($json, true);
 <!-- script recherche -->
 <script src='../assets/bower/jquery/dist/jquery.min.js'></script>
 <script src="../assets/bower/particles.js/particles.min.js"></script>
-<script src="../assets/bower/jeditable/jquery.jeditable.js"></script>
+<script src="../assets/bower/jeditable/src/jquery.jeditable.js"></script>
 <script src="../assets/js/search.js"></script>
 <script src="../assets/js/app.js"></script>
 <script src="../assets/js/admin.js"></script>
